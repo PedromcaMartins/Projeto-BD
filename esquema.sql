@@ -54,7 +54,7 @@ create table ponto_de_retalho(
 create table instalada_em(
     num_serie   float,
     fabricante  varchar(255),
-    local   varchar(255), --FIXME
+    local   varchar(255), --FIXME #3
     primary key(num_serie, fabricante),
     foreign key(local) references ponto_de_retalho(local) --FIXME
 );
