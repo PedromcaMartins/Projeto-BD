@@ -87,7 +87,7 @@ create table planograma(
 
 create table retalhista(
     tin float,
-    name varchar(255), --FIXME
+    name varchar(255) UNIQUE, --FIXME
     primary key(tin)
 );
 
