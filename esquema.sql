@@ -145,6 +145,7 @@ insert into categoria values('Barras');
 insert into categoria values('Pastilhas');
 insert into categoria values('Doces');
 insert into categoria values('Refrigerantes');
+insert into categoria values('Bebidas');
 
 --categorias simples
 insert into categoria_simples values('Sumos Naturais');
@@ -159,18 +160,40 @@ insert into categoria_simples values('Pastilhas de Menta');
 insert into categoria_simples values('Pastilhas de Morango');
 insert into categoria_simples values('Waffles');
 insert into categoria_simples values('Gomas');
+insert into categoria_simples values('Agua');
 
 --super categorias
 insert into super_categoria values('Sumos');
 insert into super_categoria values('Batatas Fritas');
 insert into super_categoria values('Bolachas');
-insert into super_categoria values('Agua');
 insert into super_categoria values('Barras');
 insert into super_categoria values('Pastilhas');
 insert into super_categoria values('Doces');
+insert into super_categoria values('Bebidas');
 
 --tem outra
 insert into tem_outra values('Sumos','Sumos Naturais');
 insert into tem_outra values('Sumos','Refrigerantes');
 insert into tem_outra values('Batatas Fritas','Batatas Fritas de Beterraba');
 insert into tem_outra values('Batatas Fritas','Batatas Fritas de Bacon');
+insert into tem_outra values('Bolachas','Bolachas de Chocolate');
+insert into tem_outra values('Bolachas','Bolachas de Aveia');
+insert into tem_outra values('Barras','Barras de Cereais');
+insert into tem_outra values('Barras','Barras Energeticas');
+insert into tem_outra values('Pastilhas','Pastilhas de Menta');
+insert into tem_outra values('Pastilhas','Pastilhas de Morango');
+insert into tem_outra values('Doces','Waffles');
+insert into tem_outra values('Doces','Gomas');
+insert into tem_outra values('Bebidas','Sumos');
+insert into tem_outra values('Bebidas','Agua');
+
+--produto
+insert into produto values(1234567891201,'Sumos Naturais','Compal de Laranja');
+insert into produto values(1234567891202,'Sumos Naturais','Compal de Manga');
+insert into produto values(1234567891203,'Refrigerantes','Fanta');
+insert into produto values(1234567891204,'Refrigerantes','Sumol');
+insert into produto values(1234567891205,'Batatas Fritas de Beterraba','Ruffles De Beterraba Artesanais');
+insert into produto values(1234567891206,'Batatas Fritas de Bacon','Lays de Bacon');
+insert into produto values(1234567891207,'Bolachas de Chocolate','Milka');
+insert into produto values(1234567891208,'Bolachas de Chocolate','Oreos');
+insert into produto values(1234567891209,'Bolachas de Aveia','Digestive');
