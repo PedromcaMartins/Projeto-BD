@@ -73,7 +73,8 @@ create table prateleira(
     nome    varchar(255),
     primary key(nro, num_serie,fabricante),
     foreign key(num_serie) references IVM(num_serie),
-    foreign key(fabricante) references IVM(fabricante)
+    foreign key(fabricante) references IVM(fabricante),
+    foreign key(nome) references categoria(nome)
 );
 
 create table planograma(
@@ -224,4 +225,42 @@ insert into tem_categoria values(1234567891215,'Gomas');
 insert into tem_categoria values(1234567891216,'Agua');
 
 --IVM
-insert into IVM values(1234567891216,'Agua');
+insert into IVM values(111111,'Fabricante 1');
+insert into IVM values(222222,'Fabricante 2');
+insert into IVM values(333333,'Fabricante 1');
+insert into IVM values(444444,'Fabricante 2');
+insert into IVM values(555555,'Fabricante 1');
+insert into IVM values(666666,'Fabricante 1');
+
+--ponto de retalho
+insert into ponto_de_retalho values('Colombo','Lisboa','Lisboa');
+insert into ponto_de_retalho values('Vasco Da Gama','Lisboa','Lisboa');
+insert into ponto_de_retalho values('Forum Aveiro','Aveiro','Aveiro');
+insert into ponto_de_retalho values('Centro de Congressos','Coimbra','Coimbra');
+
+--instalda em
+insert into instalada_em values(111111,'Fabricante 1','Colombo');
+insert into instalada_em values(222222,'Fabricante 2','Colombo');
+insert into instalada_em values(333333,'Fabricante 1','Vasco Da Gama');
+insert into instalada_em values(444444,'Fabricante 2','Vasco Da Gama');
+insert into instalada_em values(555555,'Fabricante 1','Forum Aveiro');
+insert into instalada_em values(666666,'Fabricante 1','Centro de Congressos');
+
+--prateleira
+insert into prateleira values(1,111111,'Fabricante 1', 15, 'Sumos');
+insert into prateleira values(2,111111,'Fabricante 1', 15, 'Agua');
+insert into prateleira values(3,111111,'Fabricante 1', 15, 'Doces');
+insert into prateleira values(4,111111,'Fabricante 1', 5, 'Pastilhas');
+insert into prateleira values(5,111111,'Fabricante 1', 15, 'Batatas Fritas');
+insert into prateleira values(6,111111,'Fabricante 1', 10, 'Barras');
+
+insert into prateleira values(1,222222,'Fabricante 2', 20, 'Sumos');
+insert into prateleira values(2,222222,'Fabricante 2', 15, 'Bebidas');
+insert into prateleira values(3,222222,'Fabricante 2', 15, 'Batatas Fritas');
+insert into prateleira values(4,222222,'Fabricante 2', 15, 'Bolachas');
+
+insert into prateleira values(1,333333,'Fabricante 1', 15, 'Bolachas');
+insert into prateleira values(2,333333,'Fabricante 1', 15, 'Barras');
+insert into prateleira values(3,333333,'Fabricante 1', 15, 'Bebidas');
+insert into prateleira values(4,333333,'Fabricante 1', 15, 'Pastilhas');
+insert into prateleira values(5,333333,'Fabricante 1', 15, 'Batatas Fritas');
