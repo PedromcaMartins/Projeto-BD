@@ -197,3 +197,31 @@ insert into produto values(1234567891206,'Batatas Fritas de Bacon','Lays de Baco
 insert into produto values(1234567891207,'Bolachas de Chocolate','Milka');
 insert into produto values(1234567891208,'Bolachas de Chocolate','Oreos');
 insert into produto values(1234567891209,'Bolachas de Aveia','Digestive');
+insert into produto values(1234567891210,'Barras de Cereais','Kellog');
+insert into produto values(1234567891211,'Barras Energeticas','Prozis');
+insert into produto values(1234567891212,'Pastilhas de Menta','Trident Menta');
+insert into produto values(1234567891213,'Pastilhas de Morango','Trident Morango');
+insert into produto values(1234567891214,'Waffles','Waffles com mel');
+insert into produto values(1234567891215,'Gomas','Gomas minhocas');
+insert into produto values(1234567891216,'Agua','Luso');
+
+--Tem categoria
+insert into tem_categoria values(1234567891201,'Sumos Naturais');
+insert into tem_categoria values(1234567891202,'Sumos Naturais');
+insert into tem_categoria values(1234567891203,'Refrigerantes');
+insert into tem_categoria values(1234567891204,'Refrigerantes');
+insert into tem_categoria values(1234567891205,'Batatas Fritas de Beterraba');
+insert into tem_categoria values(1234567891206,'Batatas Fritas de Bacon');
+insert into tem_categoria values(1234567891207,'Bolachas de Chocolate');
+insert into tem_categoria values(1234567891208,'Bolachas de Chocolate');
+insert into tem_categoria values(1234567891209,'Bolachas de Aveia');
+insert into tem_categoria values(1234567891210,'Barras de Cereais');
+insert into tem_categoria values(1234567891211,'Barras Energeticas');
+insert into tem_categoria values(1234567891212,'Pastilhas de Menta');
+insert into tem_categoria values(1234567891213,'Pastilhas de Morango');
+insert into tem_categoria values(1234567891214,'Waffles');
+insert into tem_categoria values(1234567891215,'Gomas');
+insert into tem_categoria values(1234567891216,'Agua');
+
+--IVM
+insert into IVM values(1234567891216,'Agua');
