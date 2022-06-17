@@ -229,22 +229,17 @@ insert into IVM values(111111,'Fabricante 1');
 insert into IVM values(222222,'Fabricante 2');
 insert into IVM values(333333,'Fabricante 1');
 insert into IVM values(444444,'Fabricante 2');
-insert into IVM values(555555,'Fabricante 1');
-insert into IVM values(666666,'Fabricante 1');
 
 --ponto de retalho
 insert into ponto_de_retalho values('Colombo','Lisboa','Lisboa');
 insert into ponto_de_retalho values('Vasco Da Gama','Lisboa','Lisboa');
 insert into ponto_de_retalho values('Forum Aveiro','Aveiro','Aveiro');
-insert into ponto_de_retalho values('Centro de Congressos','Coimbra','Coimbra');
 
 --instalda em
 insert into instalada_em values(111111,'Fabricante 1','Colombo');
-insert into instalada_em values(222222,'Fabricante 2','Colombo');
 insert into instalada_em values(333333,'Fabricante 1','Vasco Da Gama');
-insert into instalada_em values(444444,'Fabricante 2','Vasco Da Gama');
-insert into instalada_em values(555555,'Fabricante 1','Forum Aveiro');
-insert into instalada_em values(666666,'Fabricante 1','Centro de Congressos');
+insert into instalada_em values(222222,'Fabricante 1','Forum Aveiro');
+insert into instalada_em values(444444,'Fabricante 1','Colombo');
 
 --prateleira
 insert into prateleira values(1,111111,'Fabricante 1', 15, 'Sumos');
@@ -264,3 +259,10 @@ insert into prateleira values(2,333333,'Fabricante 1', 15, 'Barras');
 insert into prateleira values(3,333333,'Fabricante 1', 15, 'Bebidas');
 insert into prateleira values(4,333333,'Fabricante 1', 15, 'Pastilhas');
 insert into prateleira values(5,333333,'Fabricante 1', 15, 'Batatas Fritas');
+
+insert into prateleira values(1,444444,'Fabricante 2', 15, 'Batatas Fritas');
+insert into prateleira values(2,444444,'Fabricante 2', 15, 'Bolachas');
+insert into prateleira values(3,444444,'Fabricante 2', 15, 'Doces');
+insert into prateleira values(4,444444,'Fabricante 2', 15, 'Aguas');
+insert into prateleira values(5,444444,'Fabricante 2', 15, 'Sumos');
+insert into prateleira values(6,444444,'Fabricante 2', 15, 'Pastilhas');
