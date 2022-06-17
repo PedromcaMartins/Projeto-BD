@@ -1,3 +1,9 @@
+--1.BASE DE DADOS
+
+CREATE DATABASE vendingmachineDB; 
+
+--ESQUEMA
+
 create table categoria (
     nome    varchar(255),
     primary key(name)
@@ -116,4 +122,25 @@ create table evento_reposicao(
     foreign key(fabricante) references planograma(fabricante),
     foreign key(tin) references retalhista(tin)
 );
+
+--CARREGAMENTO
+
+insert into categoria values('Sumos');
+insert into categoria values('Sumos Naturais');
+insert into categoria values('Batatas Fritas');
+insert into categoria values('Batatas Fritas de Beterraba');
+insert into categoria values('Batatas Fritas de Bacon');
+insert into categoria values('Bolachas');
+insert into categoria values('Bolachas de Chocolate');
+
+insert into categoria_simples values('Sumos Naturais');
+insert into categoria_simples values('Batatas Fritas de Beterraba');
+insert into categoria_simples values('Batatas Fritas de Bacon');
+insert into categoria_simples values('Bolachas de Chocolate');
+
+insert into super_categoria values('Sumos');
+insert into super_categoria values('Batatas Fritas');
+insert into super_categoria values('Bolachas');
+
+insert into tem_outra values('Sumos','Sumos Naturais');
 
