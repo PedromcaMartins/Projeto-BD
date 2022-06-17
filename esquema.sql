@@ -131,7 +131,7 @@ insert into categoria values('Sumos');
 insert into categoria values('Sumos Naturais');
 insert into categoria values('Batatas Fritas');
 insert into categoria values('Batatas Fritas de Beterraba');
-insert into categoria values('Batatas Fritas de Bacon');
+insert into categoria values('Batatas Fritas de Bacon Vegan');
 insert into categoria values('Bolachas');
 insert into categoria values('Bolachas de Chocolate');
 insert into categoria values('Bolachas de Aveia');
@@ -152,7 +152,7 @@ insert into categoria values('Bebidas');
 insert into categoria_simples values('Sumos Naturais');
 insert into categoria_simples values('Refrigerantes');
 insert into categoria_simples values('Batatas Fritas de Beterraba');
-insert into categoria_simples values('Batatas Fritas de Bacon');
+insert into categoria_simples values('Batatas Fritas de Bacon Vegan');
 insert into categoria_simples values('Bolachas de Chocolate');
 insert into categoria_simples values('Bolachas de Aveia');
 insert into categoria_simples values('Barras de Cereais');
@@ -176,7 +176,7 @@ insert into super_categoria values('Bebidas');
 insert into tem_outra values('Sumos','Sumos Naturais');
 insert into tem_outra values('Sumos','Refrigerantes');
 insert into tem_outra values('Batatas Fritas','Batatas Fritas de Beterraba');
-insert into tem_outra values('Batatas Fritas','Batatas Fritas de Bacon');
+insert into tem_outra values('Batatas Fritas','Batatas Fritas de Bacon Vegan');
 insert into tem_outra values('Bolachas','Bolachas de Chocolate');
 insert into tem_outra values('Bolachas','Bolachas de Aveia');
 insert into tem_outra values('Barras','Barras de Cereais');
@@ -194,7 +194,7 @@ insert into produto values(1234567891202,'Sumos Naturais','Compal de Manga');
 insert into produto values(1234567891203,'Refrigerantes','Fanta');
 insert into produto values(1234567891204,'Refrigerantes','Sumol');
 insert into produto values(1234567891205,'Batatas Fritas de Beterraba','Ruffles De Beterraba Artesanais');
-insert into produto values(1234567891206,'Batatas Fritas de Bacon','Lays de Bacon');
+insert into produto values(1234567891206,'Batatas Fritas de Bacon Vegan','Lays de Bacon Vegan');
 insert into produto values(1234567891207,'Bolachas de Chocolate','Milka');
 insert into produto values(1234567891208,'Bolachas de Chocolate','Oreos');
 insert into produto values(1234567891209,'Bolachas de Aveia','Digestive');
@@ -283,3 +283,38 @@ insert into planograma values(1234567891205, 5, 111111, 'Fabricante 1', 1, 10, '
 insert into planograma values(1234567891205, 3, 222222, 'Fabricante 2', 1, 10, '?????');
 insert into planograma values(1234567891205, 5, 333333, 'Fabricante 1', 1, 10, '?????');
 
+insert into planograma values(1234567891206, 5, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891206, 5, 333333, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891206, 1, 444444, 'Fabricante 2', 1, 10, '?????');
+
+insert into planograma values(1234567891207, 4, 222222, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891207, 1, 333333, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891207, 2, 444444, 'Fabricante 2', 1, 10, '?????');
+
+insert into planograma values(1234567891208, 4, 222222, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891208, 1, 333333, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891208, 2, 444444, 'Fabricante 2', 1, 10, '?????');
+
+insert into planograma values(1234567891209, 4, 222222, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891209, 1, 333333, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891209, 2, 444444, 'Fabricante 2', 1, 10, '?????');
+
+insert into planograma values(1234567891210, 6, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891210, 2, 333333, 'Fabricante 1', 1, 10, '?????');
+
+insert into planograma values(1234567891211, 6, 111111, 'Fabricante 1', 1, 10, '?????');
+
+insert into planograma values(1234567891212, 4, 111111, 'Fabricante 1', 1, 10, '?????');
+
+insert into planograma values(1234567891213, 4, 333333, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891213, 6, 444444, 'Fabricante 2', 1, 10, '?????');
+
+insert into planograma values(1234567891214, 3, 111111, 'Fabricante 1', 1, 10, '?????');
+
+insert into planograma values(1234567891215, 3, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891215, 3, 444444, 'Fabricante 2', 1, 10, '?????');
+
+insert into planograma values(1234567891215, 2, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891215, 2, 222222, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891215, 3, 333333, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891215, 4, 444444, 'Fabricante 2', 1, 10, '?????');
