@@ -144,9 +144,11 @@ insert into categoria values('Agua');
 insert into categoria values('Barras');
 insert into categoria values('Pastilhas');
 insert into categoria values('Doces');
+insert into categoria values('Refrigerantes');
 
 --categorias simples
 insert into categoria_simples values('Sumos Naturais');
+insert into categoria_simples values('Refrigerantes');
 insert into categoria_simples values('Batatas Fritas de Beterraba');
 insert into categoria_simples values('Batatas Fritas de Bacon');
 insert into categoria_simples values('Bolachas de Chocolate');
@@ -169,4 +171,6 @@ insert into super_categoria values('Doces');
 
 --tem outra
 insert into tem_outra values('Sumos','Sumos Naturais');
-
+insert into tem_outra values('Sumos','Refrigerantes');
+insert into tem_outra values('Batatas Fritas','Batatas Fritas de Beterraba');
+insert into tem_outra values('Batatas Fritas','Batatas Fritas de Bacon');
