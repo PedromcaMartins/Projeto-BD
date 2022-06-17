@@ -125,6 +125,7 @@ create table evento_reposicao(
 
 --CARREGAMENTO
 
+--categorias
 insert into categoria values('Sumos');
 insert into categoria values('Sumos Naturais');
 insert into categoria values('Batatas Fritas');
@@ -132,15 +133,40 @@ insert into categoria values('Batatas Fritas de Beterraba');
 insert into categoria values('Batatas Fritas de Bacon');
 insert into categoria values('Bolachas');
 insert into categoria values('Bolachas de Chocolate');
+insert into categoria values('Bolachas de Aveia');
+insert into categoria values('Barras de Cereais');
+insert into categoria values('Barras Energeticas');
+insert into categoria values('Pastilhas de Menta');
+insert into categoria values('Pastilhas de Morango');
+insert into categoria values('Waffles');
+insert into categoria values('Gomas');
+insert into categoria values('Agua');
+insert into categoria values('Barras');
+insert into categoria values('Pastilhas');
+insert into categoria values('Doces');
 
+--categorias simples
 insert into categoria_simples values('Sumos Naturais');
 insert into categoria_simples values('Batatas Fritas de Beterraba');
 insert into categoria_simples values('Batatas Fritas de Bacon');
 insert into categoria_simples values('Bolachas de Chocolate');
+insert into categoria_simples values('Bolachas de Aveia');
+insert into categoria_simples values('Barras de Cereais');
+insert into categoria_simples values('Barras Energeticas');
+insert into categoria_simples values('Pastilhas de Menta');
+insert into categoria_simples values('Pastilhas de Morango');
+insert into categoria_simples values('Waffles');
+insert into categoria_simples values('Gomas');
 
+--super categorias
 insert into super_categoria values('Sumos');
 insert into super_categoria values('Batatas Fritas');
 insert into super_categoria values('Bolachas');
+insert into super_categoria values('Agua');
+insert into super_categoria values('Barras');
+insert into super_categoria values('Pastilhas');
+insert into super_categoria values('Doces');
 
+--tem outra
 insert into tem_outra values('Sumos','Sumos Naturais');
 
