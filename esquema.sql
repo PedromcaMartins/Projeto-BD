@@ -266,3 +266,20 @@ insert into prateleira values(3,444444,'Fabricante 2', 15, 'Doces');
 insert into prateleira values(4,444444,'Fabricante 2', 15, 'Aguas');
 insert into prateleira values(5,444444,'Fabricante 2', 15, 'Sumos');
 insert into prateleira values(6,444444,'Fabricante 2', 15, 'Pastilhas');
+
+--planograma
+insert into planograma values(1234567891201, 1, 111111, 'Fabricante 1', 1, 10, '?????'); --FIXME #5
+insert into planograma values(1234567891201, 1, 222222, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891201, 5, 444444, 'Fabricante 2', 1, 10, '?????');
+
+insert into planograma values(1234567891202, 1, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891202, 5, 444444, 'Fabricante 2', 1, 10, '?????');
+
+insert into planograma values(1234567891203, 1, 111111, 'Fabricante 1', 1, 10, '?????');
+
+insert into planograma values(1234567891204, 1, 222222, 'Fabricante 2', 1, 10, '?????');
+
+insert into planograma values(1234567891205, 5, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891205, 3, 222222, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891205, 5, 333333, 'Fabricante 1', 1, 10, '?????');
+
