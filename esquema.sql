@@ -5,20 +5,20 @@ CREATE DATABASE vendingmachineDB;
 --ESQUEMA
 
 create table categoria (
-    nome    varchar(255),
+    nome_cat    varchar(255),
     primary key(name)
 );
 
 create table categoria_simples(
-    nome    varchar(255),
-    primary key(nome),
-    foreign key(nome)references categoria(nome)
+    nome_cat    varchar(255),
+    primary key(nome_cat),
+    foreign key(nome_cat)references categoria(nome_cat)
 );
 
 create table super_categoria(
-    nome    varchar(255),
-    primary key(nome),
-    foreign key(nome)references categoria(nome)
+    nome_cat    varchar(255),
+    primary key(nome_cat),
+    foreign key(nome_cat)references categoria(nome_cat)
 );
 
 create  table tem_outra(
@@ -31,17 +31,17 @@ create  table tem_outra(
 
 create table produto (
     ean float,
-    cat varchar(255),
+    nome_cat varchar(255),
     descr   varchar(255),
     primary key(ean),
-    foreign key(cat) references categoria(cat)--FIXME #2
+    foreign key(nome_cat) references categoria(nome_cat)--FIXME #2
 );
 
 create table tem_categoria(
     ean float,
-    nome    varchar(255),
+    nome_cat    varchar(255),
     foreign key(ean) references produto(ean),
-    foreign key(nome) references categoria(nome)
+    foreign key(nome_cat) references categoria(nome_cat)
 );
 
 create table IVM(
@@ -70,11 +70,11 @@ create table prateleira(
     num_serie   float,
     fabricante  varchar(255),
     altura  decimal(2,3),
-    nome    varchar(255),
+    nome_cat    varchar(255),
     primary key(nro, num_serie,fabricante),
     foreign key(num_serie) references IVM(num_serie),
     foreign key(fabricante) references IVM(fabricante),
-    foreign key(nome) references categoria(nome)
+    foreign key(nome_cat) references categoria(nome_cat)
 );
 
 create table planograma(
@@ -348,3 +348,49 @@ insert into evento_reposicao values(1234567891213, 4, 111111, 'Fabricante 1', 20
 insert into evento_reposicao values(1234567891214, 3, 111111, 'Fabricante 1', 21, 5, 123456701);
 insert into evento_reposicao values(1234567891215, 3, 111111, 'Fabricante 1', 22, 5, 123456701);
 insert into evento_reposicao values(1234567891215, 2, 222222, 'Fabricante 2', 23, 5, 123456701);
+
+/*PERGUNTAR SOBRE 1A RESTRIÇÂO NAO SEI FAZER :(*/
+
+/*Trigger para verificar se nº unidades do evento de reposicao
+excede o do planograma*/
+CREATE OR REPLACE TRIGGER check_units
+BEFORE INSERT ON evento_reposicao --FIXME #7 CONFIRMAR SE INSERIMOS NO EVENTO D REPOSIÇÂO OU PLANOGRAMA
+FOR EACH ROW
+DECLARE uns NUMBER;
+BEGIN
+    SELECT unidades INTO uns
+    FROM planograma
+    WHERE ean := NEW.ean AND nro := NEW.nro; --FIXME #6 VER SE OS DOIS PONTOS ESTAO BEM
+    IF NEW.unidades > uns THEN
+        RAISE EXCEPTION 'Excedeu o limite de unidades'
+    END IF;
+END;
+
+/*Trigger para verificar se se pode colocar produto na prateleira*/
+CREATE OR REPLACE TRIGGER is_valid
+BEFORE INSERT ON planograma 
+FOR EACH ROW
+DECLARE cat_prod varchar(255), cat_prat NUMBER;
+BEGIN
+    SELECT categoria INTO cat_prod
+    FROM produto
+    WHERE ean := NEW.ean;
+    SELECT COUNT(*) INTO cat_prat 
+    FROM prateleira
+    WHERE nro := NEW.nro AND categoria = cat_prod;
+    IF cat_prat == 0 THEN
+        RAISE EXCEPTION 'Não existe categoria presente na prateleira'
+    END IF;
+END;
+
+/*Vista das vendas*/
+CREATE OR REPLACE VIEW vendas
+AS 
+SELECT ean, nome_cat, EXTRACT(YEAR FROM instante) AS ano, 
+EXTRACT( FROM instante) AS trimestre, EXTRACT(MONTH FROM instante) AS mes, --FIXME VER COMO FAZER TRIMESTRE :(
+EXTRACT(ISODOW FROM instante) AS dia_semana, distrito, concelho, unidades
+FROM planograma NATURAL JOIN produto 
+NATURAL JOIN categoria
+NATURAL JOIN IVM 
+NATURAL JOIN ponto_de_retalho
+NATURAL JOIN evento_reposicao
