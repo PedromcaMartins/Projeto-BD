@@ -6,7 +6,7 @@ CREATE DATABASE vendingmachineDB;
 
 create table categoria (
     nome_cat    varchar(255),
-    primary key(name)
+    primary key(nome_cat)
 );
 
 create table categoria_simples(
@@ -60,16 +60,16 @@ create table ponto_de_retalho(
 create table instalada_em(
     num_serie   float,
     fabricante  varchar(255),
-    local   varchar(255), --FIXME #3
+    localidade   varchar(255), --FIXME #3
     primary key(num_serie, fabricante),
-    foreign key(local) references ponto_de_retalho(local) --FIXME
+    foreign key(localidade) references ponto_de_retalho(localidade) --FIXME
 );
 
 create table prateleira(
     nro smallint,
     num_serie   float,
     fabricante  varchar(255),
-    altura  decimal(2,3),
+    altura  decimal(2,2),
     nome_cat    varchar(255),
     primary key(nro, num_serie,fabricante),
     foreign key(num_serie) references IVM(num_serie),
