@@ -39,7 +39,8 @@ create table super_categoria(
 create  table tem_outra(
     nome_cat   varchar(255),
     primary key(nome_cat),
-    foreign key(nome_cat) references super_categoria(nome_cat) --FIXME #2
+    foreign key(nome_cat) references super_categoria(nome_cat),
+    foreign key(nome_cat) references categoria(nome_cat)    --FIXME #2
 );
 
 create table produto (
@@ -75,7 +76,7 @@ create table instalada_em(
     fabricante  varchar(255),
     nome   varchar(255), --FIXME #3
     primary key(num_serie, fabricante),
-    foreign key(nome) references ponto_de_retalho(nome) --FIXME
+    foreign key(nome) references ponto_de_retalho(nome) 
 );
 
 create table prateleira(
@@ -104,7 +105,7 @@ create table planograma(
 
 create table retalhista(
     tin float,
-    name varchar(255) UNIQUE, --FIXME #4
+    nome varchar(255) UNIQUE,
     primary key(tin)
 );
 
@@ -115,7 +116,7 @@ create table responsavel_por(
     fabricante varchar(255),
     primary key(num_serie,fabricante),
     foreign key(tin) references retalhista(tin),
-    foreign key(nome_cat) references categoria(nome_cat) --FIXME
+    foreign key(nome_cat) references categoria(nome_cat)
 );
 
 create table evento_reposicao(
@@ -123,7 +124,7 @@ create table evento_reposicao(
     nro smallint,
     num_serie   float,
     fabricante  varchar(255),
-    instante    TIMESTAMP, --FIXME
+    instante    TIMESTAMP,
     unidades    smallint,
     tin float,
     primary key(ean, nro, num_serie, fabricante, instante),
