@@ -1,3 +1,18 @@
+drop table categoria cascade constraint;
+drop table categoria_simples cascade constraint;
+drop table super_categoria cascade constraint;
+drop table tem_outra cascade constraint;
+drop table produto cascade constraint;
+drop table tem_categoria cascade constraint;
+drop table IVM cascade constraint;
+drop table ponto_de_retalho cascade constraint;
+drop table instalada_em cascade constraint;
+drop table prateleira cascade constraint;
+drop table planograma cascade constraint;
+drop table retalhista cascade constraint;
+drop table responsavel_por cascade constraint;
+drop table evento_reposicao cascade constraint;
+
 --1.BASE DE DADOS
 
 CREATE DATABASE vendingmachineDB; 
@@ -11,13 +26,13 @@ create table categoria (
 
 create table categoria_simples(
     nome_cat    varchar(255),
-    primary key(nome_cat),
+    primary key(nome_cat_simples),
     foreign key(nome_cat)references categoria(nome_cat)
 );
 
 create table super_categoria(
     nome_cat    varchar(255),
-    primary key(nome_cat),
+    primary key(nome_cat_super),
     foreign key(nome_cat)references categoria(nome_cat)
 );
 
