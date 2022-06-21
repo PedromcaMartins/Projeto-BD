@@ -189,10 +189,10 @@ insert into planograma values(1234567891214, 3, 111111, 'Fabricante 1', 1, 10, '
 insert into planograma values(1234567891215, 3, 111111, 'Fabricante 1', 1, 10, '?????');
 insert into planograma values(1234567891215, 3, 444444, 'Fabricante 2', 1, 10, '?????');
 
-insert into planograma values(1234567891215, 2, 111111, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891215, 2, 222222, 'Fabricante 2', 1, 10, '?????');
-insert into planograma values(1234567891215, 3, 333333, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891215, 4, 444444, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891216, 2, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891216, 2, 222222, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891216, 3, 333333, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891216, 4, 444444, 'Fabricante 2', 1, 10, '?????');
 
 --retalhista
 insert into retalhista values(123456701, 'ABC');
@@ -221,5 +221,9 @@ insert into evento_reposicao values(1234567891212, 4, 111111, 'Fabricante 1', 19
 insert into evento_reposicao values(1234567891213, 4, 111111, 'Fabricante 1', 20, 5, 123456701);
 insert into evento_reposicao values(1234567891214, 3, 111111, 'Fabricante 1', 21, 5, 123456701);
 insert into evento_reposicao values(1234567891215, 3, 111111, 'Fabricante 1', 22, 5, 123456701);
-insert into evento_reposicao values(1234567891215, 2, 222222, 'Fabricante 2', 23, 5, 123456701);
+insert into evento_reposicao values(1234567891216, 2, 111111, 'Fabricante 1', 2, 5, 123456701);
 
+insert into evento_reposicao values(1234567891210, 2, 333333, 'Fabricante 1', 12, 5, 123456702);
+insert into evento_reposicao values(1234567891216, 3, 333333, 'Fabricante 1', 11, 5, 123456702);
+
+insert into evento_reposicao values(1234567891216, 4, 444444, 'Fabricante 2', 12, 5, 123456703);
