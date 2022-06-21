@@ -142,57 +142,57 @@ insert into prateleira values(5,444444,'Fabricante 2', 15, 'Sumos');
 insert into prateleira values(6,444444,'Fabricante 2', 15, 'Pastilhas');
 
 --planograma
-insert into planograma values(1234567891201, 1, 111111, 'Fabricante 1', 1, 10, '?????'); --FIXME #5
-insert into planograma values(1234567891201, 1, 222222, 'Fabricante 2', 1, 10, '?????');
-insert into planograma values(1234567891201, 5, 444444, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891201, 1, 111111, 'Fabricante 1', 1, 10, 'Colombo'); -- loc check w/dani
+insert into planograma values(1234567891201, 1, 222222, 'Fabricante 2', 1, 10, 'Vasco Da Gama');
+insert into planograma values(1234567891201, 5, 444444, 'Fabricante 2', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891202, 1, 111111, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891202, 5, 444444, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891202, 1, 111111, 'Fabricante 1', 1, 10, 'Colombo');
+insert into planograma values(1234567891202, 5, 444444, 'Fabricante 2', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891203, 1, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891203, 1, 111111, 'Fabricante 1', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891204, 1, 222222, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891204, 1, 222222, 'Fabricante 2', 1, 10, 'Vasco Da Gama');
 
-insert into planograma values(1234567891205, 5, 111111, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891205, 3, 222222, 'Fabricante 2', 1, 10, '?????');
-insert into planograma values(1234567891205, 5, 333333, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891205, 5, 111111, 'Fabricante 1', 1, 10, 'Colombo');
+insert into planograma values(1234567891205, 3, 222222, 'Fabricante 2', 1, 10, 'Vasco Da Gama');
+insert into planograma values(1234567891205, 5, 333333, 'Fabricante 1', 1, 10, 'Forum Aveiro');
 
-insert into planograma values(1234567891206, 5, 111111, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891206, 5, 333333, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891206, 1, 444444, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891206, 5, 111111, 'Fabricante 1', 1, 10, 'Colombo');
+insert into planograma values(1234567891206, 5, 333333, 'Fabricante 1', 1, 10, 'Forum Aveiro');
+insert into planograma values(1234567891206, 1, 444444, 'Fabricante 2', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891207, 4, 222222, 'Fabricante 2', 1, 10, '?????');
-insert into planograma values(1234567891207, 1, 333333, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891207, 2, 444444, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891207, 4, 222222, 'Fabricante 2', 1, 10, 'Vasco Da Gama');
+insert into planograma values(1234567891207, 1, 333333, 'Fabricante 1', 1, 10, 'Forum Aveiro');
+insert into planograma values(1234567891207, 2, 444444, 'Fabricante 2', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891208, 4, 222222, 'Fabricante 2', 1, 10, '?????');
-insert into planograma values(1234567891208, 1, 333333, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891208, 2, 444444, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891208, 4, 222222, 'Fabricante 2', 1, 10, 'Vasco Da Gama');
+insert into planograma values(1234567891208, 1, 333333, 'Fabricante 1', 1, 10, 'Forum Aveiro');
+insert into planograma values(1234567891208, 2, 444444, 'Fabricante 2', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891209, 4, 222222, 'Fabricante 2', 1, 10, '?????');
-insert into planograma values(1234567891209, 1, 333333, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891209, 2, 444444, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891209, 4, 222222, 'Fabricante 2', 1, 10, 'Vasco Da Gama');
+insert into planograma values(1234567891209, 1, 333333, 'Fabricante 1', 1, 10, 'Forum Aveiro');
+insert into planograma values(1234567891209, 2, 444444, 'Fabricante 2', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891210, 6, 111111, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891210, 2, 333333, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891210, 6, 111111, 'Fabricante 1', 1, 10, 'Colombo');
+insert into planograma values(1234567891210, 2, 333333, 'Fabricante 1', 1, 10, 'Forum Aveiro');
 
-insert into planograma values(1234567891211, 6, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891211, 6, 111111, 'Fabricante 1', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891212, 4, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891212, 4, 111111, 'Fabricante 1', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891213, 4, 333333, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891213, 6, 444444, 'Fabricante 2', 1, 10, '?????');
-insert into planograma values(1234567891213, 4, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891213, 4, 333333, 'Fabricante 1', 1, 10, 'Forum Aveiro');
+insert into planograma values(1234567891213, 6, 444444, 'Fabricante 2', 1, 10, 'Colombo');
+insert into planograma values(1234567891213, 4, 111111, 'Fabricante 1', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891214, 3, 111111, 'Fabricante 1', 1, 10, '?????');
+insert into planograma values(1234567891214, 3, 111111, 'Fabricante 1', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891215, 3, 111111, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891215, 3, 444444, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891215, 3, 111111, 'Fabricante 1', 1, 10, 'Colombo');
+insert into planograma values(1234567891215, 3, 444444, 'Fabricante 2', 1, 10, 'Colombo');
 
-insert into planograma values(1234567891215, 2, 111111, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891215, 2, 222222, 'Fabricante 2', 1, 10, '?????');
-insert into planograma values(1234567891215, 3, 333333, 'Fabricante 1', 1, 10, '?????');
-insert into planograma values(1234567891215, 4, 444444, 'Fabricante 2', 1, 10, '?????');
+insert into planograma values(1234567891216, 2, 111111, 'Fabricante 1', 1, 10, 'Colombo');
+insert into planograma values(1234567891216, 2, 222222, 'Fabricante 2', 1, 10, 'Vasco Da Gama');
+insert into planograma values(1234567891216, 3, 333333, 'Fabricante 1', 1, 10, 'Forum Aveiro');
+insert into planograma values(1234567891216, 4, 444444, 'Fabricante 2', 1, 10, 'Colombo');
 
 --retalhista
 insert into retalhista values(123456701, 'ABC');
@@ -221,5 +221,9 @@ insert into evento_reposicao values(1234567891212, 4, 111111, 'Fabricante 1', 19
 insert into evento_reposicao values(1234567891213, 4, 111111, 'Fabricante 1', 20, 5, 123456701);
 insert into evento_reposicao values(1234567891214, 3, 111111, 'Fabricante 1', 21, 5, 123456701);
 insert into evento_reposicao values(1234567891215, 3, 111111, 'Fabricante 1', 22, 5, 123456701);
-insert into evento_reposicao values(1234567891215, 2, 222222, 'Fabricante 2', 23, 5, 123456701);
+insert into evento_reposicao values(1234567891216, 2, 111111, 'Fabricante 1', 2, 5, 123456701);
 
+insert into evento_reposicao values(1234567891210, 2, 333333, 'Fabricante 1', 12, 5, 123456702);
+insert into evento_reposicao values(1234567891216, 3, 333333, 'Fabricante 1', 11, 5, 123456702);
+
+insert into evento_reposicao values(1234567891216, 4, 444444, 'Fabricante 2', 12, 5, 123456703);
