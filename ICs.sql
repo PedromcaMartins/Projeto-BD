@@ -1,5 +1,6 @@
 /*PERGUNTAR SOBRE 1A RESTRIÇÂO NAO SEI FAZER :(*/
 
+
 /*Trigger para verificar se nº unidades do evento de reposicao
 excede o do planograma*/
 CREATE OR REPLACE TRIGGER check_units
@@ -26,7 +27,7 @@ BEGIN
     WHERE ean := NEW.ean;
     SELECT COUNT(*) INTO cat_prat 
     FROM prateleira
-    WHERE nro := NEW.nro AND categoria = cat_prod;
+    WHERE nro := NEW.nro AND categoria := cat_prod;
     IF cat_prat == 0 THEN
         RAISE EXCEPTION 'Não existe categoria presente na prateleira'
     END IF;
