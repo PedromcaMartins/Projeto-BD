@@ -85,21 +85,29 @@ def update_balance():
         dbConn.close()
 
 
-@app.route("/options")
-def options():
-    dbConn = None
-    cursor = None
-    try:
-        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
-        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-        query = "SELECT * FROM account;"
-        cursor.execute(query)
-        return render_template("index.html", cursor=cursor)
-    except Exception as e:
-        return str(e)  # Renders a page with the error.
-    finally:
-        cursor.close()
-        dbConn.close()
+@app.route("/main")
+def main_menu():
+    return render_template("main_menu.html")
+
+
+@app.route("/ins_rem_cat")
+def insert_remove_cat():
+    return render_template("insert_remove_cat.html")
+
+
+@app.route("/ins_rem_retailer")
+def insert_remove_retailer():
+    return render_template("insert_remove_retailer.html")
+
+
+@app.route("/list_ivm_event")
+def list_ivm_events():
+    return render_template("list_ivm_events.html")
+
+
+@app.route("/list_all_subcat")
+def list_all_subcat():
+    return render_template("list_all_subcat.html")
 
 
 CGIHandler().run(app)
