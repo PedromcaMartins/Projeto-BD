@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>List accounts - Flask</title>
+    <title>Mostrar e mudar retailers - Flask</title>
 </head>
 <body style="padding:20px">
 
-<h1>Inserir ou remover categorias</h1>
+<h1>Inserir ou remover retailers</h1>
 <p></p>
 <button onclick="window.location.href='http://localhost:8000/cgi-bin/test.cgi/';">
     Main menu
@@ -24,7 +24,7 @@
             {% for record in cursor %}
                 <tr>
                     <td>{{ record[0] }}</td>
-                    <td><a href="remove_category?account_number={{ record[0] }}">Remover categoria</a></td>
+                    <td><a href="remove_retailer?retailer_name={{ record[0] }}">Remover retailer</a></td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -34,8 +34,8 @@
 {% endif %}
 
 <p></p>
-<button onclick="window.location.href='http://localhost:8000/cgi-bin/test.cgi/insert_cat';">
-    Inserir categoria
+<button onclick="window.location.href='http://localhost:8000/cgi-bin/test.cgi/insert_retailer';">
+    Inserir retailer
   </button>
 <p></p>
 
