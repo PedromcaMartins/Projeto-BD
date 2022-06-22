@@ -27,13 +27,13 @@ create table categoria_simples(
 
 create table super_categoria(
     nome_cat_super    varchar(255),
-    nome_cat    varchar(255),
     primary key(nome_cat),
     foreign key(nome_cat)references categoria(nome_cat)
 );
 
 create  table tem_outra(
     nome_cat   varchar(255),
+    nome_cat_super  varchar(255),
     primary key(nome_cat),
     foreign key(nome_cat) references categoria(nome_cat)    --FIXME #2
 );
