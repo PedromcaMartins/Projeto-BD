@@ -86,7 +86,7 @@ insert into tem_categoria values(1234567891202,'Sumos Naturais');
 insert into tem_categoria values(1234567891203,'Refrigerantes');
 insert into tem_categoria values(1234567891204,'Refrigerantes');
 insert into tem_categoria values(1234567891205,'Batatas Fritas de Beterraba');
-insert into tem_categoria values(1234567891206,'Batatas Fritas de Bacon');
+insert into tem_categoria values(1234567891206,'Batatas Fritas de Bacon Vegan');
 insert into tem_categoria values(1234567891207,'Bolachas de Chocolate');
 insert into tem_categoria values(1234567891208,'Bolachas de Chocolate');
 insert into tem_categoria values(1234567891209,'Bolachas de Aveia');
