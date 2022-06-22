@@ -123,7 +123,7 @@ create table evento_reposicao(
     nro smallint,
     num_serie   float,
     fabricante  varchar(255),
-    instante    TIMESTAMP,
+    instante    date,
     unidades    smallint,
     tin float,
     primary key(ean, nro, num_serie, fabricante, instante),

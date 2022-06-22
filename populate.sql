@@ -206,24 +206,24 @@ insert into responsavel_por values(123456702, 333333, 'Fabricante 1');
 insert into responsavel_por values(123456703, 444444, 'Fabricante 2');
 
 --evento reposicao
-insert into evento_reposicao values(1234567891201, 1, 111111, 'Fabricante 1', TO_TIMESTAMP('2022-02-09 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891202, 1, 111111, 'Fabricante 1', TO_TIMESTAMP('2022-02-10 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891203, 1, 111111, 'Fabricante 1', TO_TIMESTAMP('2022-02-11 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891204, 1, 222222, 'Fabricante 2', TO_TIMESTAMP('2022-02-12 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891205, 3, 222222, 'Fabricante 2', TO_TIMESTAMP('2022-08-13 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891206, 5, 111111, 'Fabricante 1', TO_TIMESTAMP('2022-02-14 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891207, 4, 222222, 'Fabricante 2', TO_TIMESTAMP('2022-01-15 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891208, 4, 222222, 'Fabricante 2', TO_TIMESTAMP('2022-02-16 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891209, 4, 222222, 'Fabricante 2', TO_TIMESTAMP('2022-11-17 07:00:00', 'YYYY-MM-DD HH24:MI:SS') 5, 123456701);
-insert into evento_reposicao values(1234567891210, 6, 111111, 'Fabricante 1', TO_TIMESTAMP('2022-02-18 07:00:00', 'YYYY-MM-DD HH24:MI:SS') 5, 123456701);
-insert into evento_reposicao values(1234567891211, 6, 111111, 'Fabricante 1', TO_TIMESTAMP('2022-02-19 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891212, 4, 111111, 'Fabricante 1', TO_TIMESTAMP('2022-07-20 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891213, 4, 111111, 'Fabricante 1', TO_TIMESTAMP('2022-02-21 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891214, 3, 111111, 'Fabricante 1', TO_TIMESTAMP('2022-02-22 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891215, 3, 111111, 'Fabricante 1', TO_TIMESTAMP('2022-05-23 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
-insert into evento_reposicao values(1234567891216, 2, 111111, 'Fabricante 1', TO_TIMESTAMP('2022-02-24 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456701);
+insert into evento_reposicao values(1234567891201, 1, 111111, 'Fabricante 1', '2022-02-09 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891202, 1, 111111, 'Fabricante 1', '2022-02-10 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891203, 1, 111111, 'Fabricante 1', '2022-02-11 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891204, 1, 222222, 'Fabricante 2', '2022-02-12 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891205, 3, 222222, 'Fabricante 2', '2022-08-13 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891206, 5, 111111, 'Fabricante 1', '2022-02-14 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891207, 4, 222222, 'Fabricante 2', '2022-01-15 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891208, 4, 222222, 'Fabricante 2', '2022-02-16 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891209, 4, 222222, 'Fabricante 2', '2022-11-17 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891210, 6, 111111, 'Fabricante 1', '2022-02-18 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891211, 6, 111111, 'Fabricante 1', '2022-02-19 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891212, 4, 111111, 'Fabricante 1', '2022-07-20 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891213, 4, 111111, 'Fabricante 1', '2022-02-21 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891214, 3, 111111, 'Fabricante 1', '2022-02-22 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891215, 3, 111111, 'Fabricante 1', '2022-05-23 07:00:00', 5, 123456701);
+insert into evento_reposicao values(1234567891216, 2, 111111, 'Fabricante 1', '2022-02-24 07:00:00', 5, 123456701);
 
-insert into evento_reposicao values(1234567891210, 2, 333333, 'Fabricante 1', TO_TIMESTAMP('2022-11-01 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456702);
-insert into evento_reposicao values(1234567891216, 3, 333333, 'Fabricante 1', TO_TIMESTAMP('2022-02-01 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456702);
+insert into evento_reposicao values(1234567891210, 2, 333333, 'Fabricante 1', '2022-11-01 07:00:00', 5, 123456702);
+insert into evento_reposicao values(1234567891216, 3, 333333, 'Fabricante 1', '2022-02-01 07:00:00', 5, 123456702);
 
-insert into evento_reposicao values(1234567891216, 4, 444444, 'Fabricante 2', TO_TIMESTAMP('2022-02-02 07:00:00', 'YYYY-MM-DD HH24:MI:SS'), 5, 123456703);
+insert into evento_reposicao values(1234567891216, 4, 444444, 'Fabricante 2', '2022-02-02 07:00:00', 5, 123456703);
