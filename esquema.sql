@@ -1,8 +1,3 @@
---1.BASE DE DADOS
-
-CREATE DATABASE vendingmachineDB; 
-
-
 drop table tem_outra;
 drop table tem_categoria;
 drop table instalada_em;
@@ -31,6 +26,7 @@ create table categoria_simples(
 );
 
 create table super_categoria(
+    nome_cat_super    varchar(255),
     nome_cat    varchar(255),
     primary key(nome_cat),
     foreign key(nome_cat)references categoria(nome_cat)
