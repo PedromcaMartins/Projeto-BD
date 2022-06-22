@@ -84,7 +84,7 @@ def update_balance():
         cursor.close()
         dbConn.close()
 
-
+##-------------------------------------------------------------------
 @app.route("/main")
 def main_menu():
     return render_template("main_menu.html")
@@ -117,29 +117,56 @@ def remove_category():
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         account_number = request.args["account_number"]
 
+        ## fixme
         ## eliminar a conta de todas as tabelas
-        query = "DELETE FROM prateleira WHERE nome=%s"
+        query = "DELETE FROM prateleira WHERE nome_cat=%s"
         cursor.execute(query, (account_number,))
         query = "DELETE FROM responsavel_por WHERE nome_cat=%s"
         cursor.execute(query, (account_number,))
-        query = "DELETE FROM categoria WHERE nome=%s"
+        query = "DELETE FROM produto WHERE nome_cat=%s"
         cursor.execute(query, (account_number,))
-        query = "DELETE FROM categoria_simples WHERE nome=%s"
+        query = "DELETE FROM tem_categoria WHERE nome_cat=%s"
         cursor.execute(query, (account_number,))
-        query = "DELETE FROM super_categoria WHERE nome=%s"
+        query = "DELETE FROM tem_outra WHERE nome_cat=%s"
         cursor.execute(query, (account_number,))
-        query = "DELETE FROM produto WHERE cat=%s"
+        query = "DELETE FROM tem_outra WHERE nome_cat_super=%s"
         cursor.execute(query, (account_number,))
-        query = "DELETE FROM tem_categoria WHERE nome=%s"
+        query = "DELETE FROM categoria_simples WHERE nome_cat=%s"
         cursor.execute(query, (account_number,))
-        query = "DELETE FROM tem_outra WHERE categoria=%s"
+        query = "DELETE FROM super_categoria WHERE nome_cat=%s"
         cursor.execute(query, (account_number,))
-        query = "DELETE FROM tem_outra WHERE super_categoria=%s"
-        cursor.execute(query, (account_number,))
-        query = "DELETE FROM account WHERE account_number = %s"
+        query = "DELETE FROM categoria WHERE nome_cat=%s"
         cursor.execute(query, (account_number,))
 
-        return query
+        return render_template("confirmation.html")
+    except Exception as e:
+        return str(e)
+    finally:
+        dbConn.commit()
+        cursor.close()
+        dbConn.close()
+
+
+@app.route("/insert_cat")
+def insert_category():
+    try:
+        return render_template("insert_cat.html")
+    except Exception as e:
+        return str(e)
+
+
+@app.route("/create_cat", methods=["POST"])
+def create_category():
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        nome_cat = request.form["nome_cat"]
+        query = "INSERT INTO categoria VALUES (%s);"
+        data = (nome_cat,)
+        cursor.execute(query, data)
+        return render_template("confirmation.html")
     except Exception as e:
         return str(e)
     finally:
