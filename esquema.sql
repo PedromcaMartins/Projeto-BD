@@ -56,7 +56,7 @@ create table tem_categoria(
 
 create table IVM(
     num_serie   float   UNIQUE,
-    fabricante  varchar(255) UNIQUE,
+    fabricante  varchar(255),
     primary key(num_serie, fabricante)
 );
 
