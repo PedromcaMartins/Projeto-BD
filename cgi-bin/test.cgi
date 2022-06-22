@@ -117,7 +117,7 @@ def remove_category():
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         category_name = request.args["category_name"]
 
-        ## fixme
+        ## fixme corrigir os delete's
         ## eliminar a conta de todas as tabelas
         query = "DELETE FROM prateleira WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
@@ -204,9 +204,13 @@ def remove_retailer():
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         retailer_name = request.args["retailer_name"]
 
-        ## fixme adicionar mais DELETEs
+        ## fixme mudar os WHERE dos deletes
         ## eliminar o retailer de todas as tabelas
-        query = "DELETE FROM prateleira WHERE nome_cat=%s"
+        query = "DELETE FROM responsavel_por WHERE nome=%s"
+        cursor.execute(query, (retailer_name,))
+        query = "DELETE FROM evento_reposicao WHERE nome=%s"
+        cursor.execute(query, (retailer_name,))
+        query = "DELETE FROM retalhista WHERE nome=%s"
         cursor.execute(query, (retailer_name,))
 
         return render_template("confirmation.html")
