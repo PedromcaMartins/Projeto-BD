@@ -201,7 +201,6 @@ insert into retalhista values(123456703, 'GHI');
 
 --responsavel por
 insert into responsavel_por values('Sumos Naturais', 123456701, 111111, 'Fabricante 1');
---insert into responsavel_por values('Pastilhas', 123456701, 111111, 'Fabricante 1');
 
 insert into responsavel_por values('Agua', 123456702, 333333, 'Fabricante 1');
 
