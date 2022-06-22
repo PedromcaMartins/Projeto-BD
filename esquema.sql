@@ -32,8 +32,8 @@ create table super_categoria(
 );
 
 create  table tem_outra(
-    nome_cat   varchar(255),
     nome_cat_super  varchar(255),
+    nome_cat   varchar(255),
     primary key(nome_cat),
     foreign key(nome_cat) references categoria(nome_cat),
     foreign key(nome_cat_super) references super_categoria(nome_cat)
