@@ -13,7 +13,7 @@ drop table categoria;
 drop table IVM;
 drop table ponto_de_retalho;
 --ESQUEMA
-
+--dxfvnjm
 create table categoria (
     nome_cat    varchar(255),
     primary key(nome_cat)
