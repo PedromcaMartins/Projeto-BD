@@ -1,39 +1,43 @@
-/*1*/
-SELECT name
-FROM Retailer 
+/*1*/ 
+SELECT nome
+FROM retalhista 
 WHERE
-SELECT Count(DISTINCT name_categ) 
-FROM responsible_for >= ALL (
-SELECT Count(DISTINCT name_categ)
-FROM responsible_for)
+(SELECT Count(DISTINCT nome_cat) 
+FROM responsavel_por) >= ALL (
+SELECT Count(DISTINCT nome_cat)
+FROM responsavel_por)
 
 /* TESTAR QUAL FUNCIONA*/
+--FIXME
+CREATE OR REPLACE VIEW aux 
+AS
+SELECT Count(DISTINCT nome_cat) as c
+FROM retalhista 
 
-SELECT name
-FROM Retailer 
+SELECT nome
+FROM retalhista 
 WHERE
-SELECT Count(DISTINCT name_categ) 
-FROM retailer NATURAL JOIN responsible_for >= ALL (
-SELECT Count(DISTINCT name_categ)
-FROM responsible_for)
+aux.c >= ALL (
+SELECT Count(DISTINCT nome_cat)
+FROM responsavel_por)
 
-/*2*/
-SELECT name
-FROM Retailer 
+/*2*/ --FIXME
+SELECT nome
+FROM retalhista NATURAL JOIN responsavel_por
 WHERE 
-SELECT COUNT (DISTINCT name_categ) == 
+SELECT COUNT (DISTINCT nome_cat) == 
 SELECT COUNT(
-SELECT name_categ 
+SELECT nome_cat 
 FROM categoria_simples)
 
-/*3*/
+/*3*/ 
+(SELECT ean
+FROM produto
+EXCEPT 
 SELECT ean
-FROM product
-MINUS 
-SELECT ean
-FROM replenishment_event
+FROM evento_reposicao)
 
-/*4*/
+/*4*/ --FIXME
 SELECT ean
-FROM replenishment_event
-HAVING COUNT(DISTINCT tin) == 1
+FROM evento_reposicao
+HAVING COUNT(DISTINCT tin) = 1

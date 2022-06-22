@@ -1,4 +1,4 @@
-/*PROBLEMA DO TEM_OUTRA... :(*/
+/*Trigger para verificar se uma categoria não pode estar contida em si própria*/
 CREATE OR REPLACE TRIGGER doesnt_contain_itself
 BEFORE INSERT ON tem_outra 
 FOR EACH ROW
