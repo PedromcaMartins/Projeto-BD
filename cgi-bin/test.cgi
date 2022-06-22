@@ -115,28 +115,28 @@ def remove_category():
     try:
         dbConn = psycopg2.connect(DB_CONNECTION_STRING)
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-        account_number = request.args["account_number"]
+        category_name = request.args["category_name"]
 
         ## fixme
         ## eliminar a conta de todas as tabelas
         query = "DELETE FROM prateleira WHERE nome_cat=%s"
-        cursor.execute(query, (account_number,))
+        cursor.execute(query, (category_name,))
         query = "DELETE FROM responsavel_por WHERE nome_cat=%s"
-        cursor.execute(query, (account_number,))
+        cursor.execute(query, (category_name,))
         query = "DELETE FROM produto WHERE nome_cat=%s"
-        cursor.execute(query, (account_number,))
+        cursor.execute(query, (category_name,))
         query = "DELETE FROM tem_categoria WHERE nome_cat=%s"
-        cursor.execute(query, (account_number,))
+        cursor.execute(query, (category_name,))
         query = "DELETE FROM tem_outra WHERE nome_cat=%s"
-        cursor.execute(query, (account_number,))
+        cursor.execute(query, (category_name,))
         query = "DELETE FROM tem_outra WHERE nome_cat_super=%s"
-        cursor.execute(query, (account_number,))
+        cursor.execute(query, (category_name,))
         query = "DELETE FROM categoria_simples WHERE nome_cat=%s"
-        cursor.execute(query, (account_number,))
+        cursor.execute(query, (category_name,))
         query = "DELETE FROM super_categoria WHERE nome_cat=%s"
-        cursor.execute(query, (account_number,))
+        cursor.execute(query, (category_name,))
         query = "DELETE FROM categoria WHERE nome_cat=%s"
-        cursor.execute(query, (account_number,))
+        cursor.execute(query, (category_name,))
 
         return render_template("confirmation.html")
     except Exception as e:
@@ -162,9 +162,84 @@ def create_category():
     try:
         dbConn = psycopg2.connect(DB_CONNECTION_STRING)
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-        nome_cat = request.form["nome_cat"]
+        category_name = request.form["category_name"]
         query = "INSERT INTO categoria VALUES (%s);"
-        data = (nome_cat,)
+        data = (category_name,)
+        cursor.execute(query, data)
+        return render_template("confirmation.html")
+    except Exception as e:
+        return str(e)
+    finally:
+        dbConn.commit()
+        cursor.close()
+        dbConn.close()
+
+
+## metodos para a 2a funcionalidade
+@app.route("/ins_rem_retailer")
+def insert_remove_retailer():
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+        query = "SELECT nome FROM retalhista;"
+        cursor.execute(query)
+
+        return render_template("insert_remove_retailer.html", cursor=cursor)
+    except Exception as e:
+        return str(e)
+    finally:
+        cursor.close()
+        dbConn.close()
+
+
+@app.route("/remove_retailer")
+def remove_retailer():
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        retailer_name = request.args["retailer_name"]
+
+        ## fixme adicionar mais DELETEs
+        ## eliminar o retailer de todas as tabelas
+        query = "DELETE FROM prateleira WHERE nome_cat=%s"
+        cursor.execute(query, (retailer_name,))
+
+        return render_template("confirmation.html")
+    except Exception as e:
+        return str(e)
+    finally:
+        dbConn.commit()
+        cursor.close()
+        dbConn.close()
+
+
+@app.route("/insert_retailer")
+def insert_retailer():
+    try:
+        return render_template("insert_retailer.html")
+    except Exception as e:
+        return str(e)
+
+
+@app.route("/create_retailer", methods=["POST"])
+def create_retailer():
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+        retailer_name = request.form["retailer_name"]
+        ## fixme adicionar um id (dado pelo sistema) ao retalhista
+        retailer_id = 123456704
+        query = "INSERT INTO retalhista VALUES (%s, %s);"
+        data = (retailer_id, retailer_name)
+
         cursor.execute(query, data)
         return render_template("confirmation.html")
     except Exception as e:
@@ -176,11 +251,6 @@ def create_category():
 
 
 ## TODO
-@app.route("/ins_rem_retailer")
-def insert_remove_retailer():
-    return render_template("insert_remove_retailer.html")
-
-
 @app.route("/list_ivm_event")
 def list_ivm_events():
     return render_template("list_ivm_events.html")
