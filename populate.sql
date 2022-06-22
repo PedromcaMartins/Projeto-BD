@@ -137,7 +137,7 @@ insert into prateleira values(5,333333,'Fabricante 1', 15, 'Batatas Fritas');
 insert into prateleira values(1,444444,'Fabricante 2', 15, 'Batatas Fritas');
 insert into prateleira values(2,444444,'Fabricante 2', 15, 'Bolachas');
 insert into prateleira values(3,444444,'Fabricante 2', 15, 'Doces');
-insert into prateleira values(4,444444,'Fabricante 2', 15, 'Aguas');
+insert into prateleira values(4,444444,'Fabricante 2', 15, 'Agua');
 insert into prateleira values(5,444444,'Fabricante 2', 15, 'Sumos');
 insert into prateleira values(6,444444,'Fabricante 2', 15, 'Pastilhas');
 
