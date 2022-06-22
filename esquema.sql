@@ -39,7 +39,6 @@ create table super_categoria(
 create  table tem_outra(
     nome_cat   varchar(255),
     primary key(nome_cat),
-    foreign key(nome_cat) references super_categoria(nome_cat),
     foreign key(nome_cat) references categoria(nome_cat)    --FIXME #2
 );
 
@@ -48,7 +47,7 @@ create table produto (
     nome_cat varchar(255),
     descr   varchar(255),
     primary key(ean),
-    foreign key(nome_cat) references categoria(nome_cat)--FIXME #2
+    foreign key(nome_cat) references categoria(nome_cat)
 );
 
 create table tem_categoria(
