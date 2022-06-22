@@ -3,7 +3,7 @@ CREATE OR REPLACE TRIGGER doesnt_contain_itself
 BEFORE INSERT ON tem_outra 
 FOR EACH ROW
 BEGIN
-    IF NEW.categoria == NEW.super_categoria THEN
+    IF NEW.nome_cat == NEW.nome_cat_super THEN
         RAISE EXCEPTION 'Uma categoria não pode estar contida em si própria'
     END IF;
 END;
