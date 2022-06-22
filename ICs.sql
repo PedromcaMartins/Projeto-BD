@@ -11,13 +11,13 @@ END;
 /*Trigger para verificar se nº unidades do evento de reposicao
 excede o do planograma*/
 CREATE OR REPLACE TRIGGER check_units
-BEFORE INSERT ON evento_reposicao --FIXME #7 CONFIRMAR SE INSERIMOS NO EVENTO D REPOSIÇÂO OU PLANOGRAMA
+BEFORE INSERT ON evento_reposicao 
 FOR EACH ROW
 DECLARE uns NUMBER;
 BEGIN
     SELECT unidades INTO uns
     FROM planograma
-    WHERE ean := NEW.ean AND nro := NEW.nro; --FIXME #6 VER SE OS DOIS PONTOS ESTAO BEM
+    WHERE ean := NEW.ean AND nro := NEW.nro; 
     IF NEW.unidades > uns THEN
         RAISE EXCEPTION 'Excedeu o limite de unidades'
     END IF;
