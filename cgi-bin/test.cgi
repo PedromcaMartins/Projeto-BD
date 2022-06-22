@@ -64,14 +64,6 @@ def change_balance():
         return str(e)
 
 
-@app.route("/remove_account")
-def remove_account():
-    try:
-        return render_template("remove_account.html", params=request.args)
-    except Exception as e:
-        return str(e)
-
-
 @app.route("/update", methods=["POST"])
 def update_balance():
     dbConn = None
@@ -98,6 +90,7 @@ def main_menu():
     return render_template("main_menu.html")
 
 
+## metodos para a 1a funcionalidade
 @app.route("/ins_rem_cat")
 def insert_remove_cat():
     dbConn = None
@@ -115,6 +108,40 @@ def insert_remove_cat():
         dbConn.close()
 
 
+@app.route("/remove_category")
+def remove_category():
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        account_number = request.args["account_number"]
+
+        ## eliminar a conta de todas as tabelas
+        query = "DELETE FROM tem_outra WHERE super_categoria=%s"
+        query = "DELETE FROM tem_outra WHERE categoria=%s"
+        query = "DELETE FROM tem_categoria WHERE nome=%s"
+        query = "DELETE FROM produto WHERE cat=%s"
+        query = "DELETE FROM prateleira WHERE nome=%s"
+        query = "DELETE FROM prateleira WHERE nome=%s"
+        query = "DELETE FROM responsavel_por WHERE nome_cat=%s"
+        query = "DELETE FROM categoria_simples WHERE nome=%s"
+        query = "DELETE FROM super_categoria WHERE nome=%s"
+        query = "DELETE FROM categoria WHERE nome=%s"
+
+        query = "DELETE FROM account WHERE account_number = %s"
+        cursor.execute(query, (account_number,))
+
+        return query
+    except Exception as e:
+        return str(e)
+    finally:
+        dbConn.commit()
+        cursor.close()
+        dbConn.close()
+
+
+## TODO
 @app.route("/ins_rem_retailer")
 def insert_remove_retailer():
     return render_template("insert_remove_retailer.html")
