@@ -64,6 +64,14 @@ def change_balance():
         return str(e)
 
 
+@app.route("/remove_account")
+def remove_account():
+    try:
+        return render_template("remove_account.html", params=request.args)
+    except Exception as e:
+        return str(e)
+
+
 @app.route("/update", methods=["POST"])
 def update_balance():
     dbConn = None
@@ -92,7 +100,19 @@ def main_menu():
 
 @app.route("/ins_rem_cat")
 def insert_remove_cat():
-    return render_template("insert_remove_cat.html")
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        query = "SELECT account_number, branch_name, balance FROM account;"
+        cursor.execute(query)
+        return render_template("insert_remove_cat.html", cursor=cursor)
+    except Exception as e:
+        return str(e)
+    finally:
+        cursor.close()
+        dbConn.close()
 
 
 @app.route("/ins_rem_retailer")

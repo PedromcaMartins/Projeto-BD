@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+    <meta charset="utf-8">
+    <title>List accounts - Flask</title>
+</head>
+<body style="padding:20px">
 
 <h1>Inserir ou remover categorias</h1>
 <p></p>
@@ -8,6 +12,31 @@
     Main menu
   </button>
 <p></p>
+
+{% if cursor %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>Conta</th>
+                <th>Agência</th>
+                <th>Saldo</th>
+                <th>Remover</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in cursor %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td>{{ record[1] }}</td>
+                    <td>{{ record[2] }}</td>
+                    <td><a href="remove_account?account_number={{ record[0] }}">Remover conta</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p> Erro: não foi possível obter dados da base de dados!</p>
+{% endif %}
 
 </body>
 </html> 
