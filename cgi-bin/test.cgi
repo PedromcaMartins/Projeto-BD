@@ -22,7 +22,7 @@ app = Flask(__name__)
 app.debug = True
 
 
-@app.route("/")
+@app.route("/list_accounts")
 def list_accounts():
     dbConn = None
     cursor = None
@@ -85,7 +85,7 @@ def update_balance():
         dbConn.close()
 
 ##-------------------------------------------------------------------
-@app.route("/main")
+@app.route("/")
 def main_menu():
     return render_template("main_menu.html")
 
