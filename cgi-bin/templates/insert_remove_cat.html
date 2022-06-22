@@ -12,14 +12,11 @@
     Main menu
   </button>
 <p></p>
-
 {% if cursor %}
     <table border="2px">
         <thead>
             <tr>
-                <th>Conta</th>
-                <th>Agência</th>
-                <th>Saldo</th>
+                <th>Nome</th>
                 <th>Remover</th>
             </tr>
         </thead>
@@ -27,8 +24,6 @@
             {% for record in cursor %}
                 <tr>
                     <td>{{ record[0] }}</td>
-                    <td>{{ record[1] }}</td>
-                    <td>{{ record[2] }}</td>
                     <td><a href="remove_category?account_number={{ record[0] }}">Remover categoria</a></td>
                 </tr>
             {% endfor %}
