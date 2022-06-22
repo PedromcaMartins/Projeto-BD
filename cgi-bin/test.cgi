@@ -98,7 +98,7 @@ def insert_remove_cat():
     try:
         dbConn = psycopg2.connect(DB_CONNECTION_STRING)
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-        query = "SELECT account_number, branch_name, balance FROM account;"
+        query = "SELECT * FROM categoria;"
         cursor.execute(query)
         return render_template("insert_remove_cat.html", cursor=cursor)
     except Exception as e:
@@ -118,17 +118,24 @@ def remove_category():
         account_number = request.args["account_number"]
 
         ## eliminar a conta de todas as tabelas
-        query = "DELETE FROM tem_outra WHERE super_categoria=%s"
-        query = "DELETE FROM tem_outra WHERE categoria=%s"
-        query = "DELETE FROM tem_categoria WHERE nome=%s"
-        query = "DELETE FROM produto WHERE cat=%s"
         query = "DELETE FROM prateleira WHERE nome=%s"
-        query = "DELETE FROM prateleira WHERE nome=%s"
+        cursor.execute(query, (account_number,))
         query = "DELETE FROM responsavel_por WHERE nome_cat=%s"
-        query = "DELETE FROM categoria_simples WHERE nome=%s"
-        query = "DELETE FROM super_categoria WHERE nome=%s"
+        cursor.execute(query, (account_number,))
         query = "DELETE FROM categoria WHERE nome=%s"
-
+        cursor.execute(query, (account_number,))
+        query = "DELETE FROM categoria_simples WHERE nome=%s"
+        cursor.execute(query, (account_number,))
+        query = "DELETE FROM super_categoria WHERE nome=%s"
+        cursor.execute(query, (account_number,))
+        query = "DELETE FROM produto WHERE cat=%s"
+        cursor.execute(query, (account_number,))
+        query = "DELETE FROM tem_categoria WHERE nome=%s"
+        cursor.execute(query, (account_number,))
+        query = "DELETE FROM tem_outra WHERE categoria=%s"
+        cursor.execute(query, (account_number,))
+        query = "DELETE FROM tem_outra WHERE super_categoria=%s"
+        cursor.execute(query, (account_number,))
         query = "DELETE FROM account WHERE account_number = %s"
         cursor.execute(query, (account_number,))
 
