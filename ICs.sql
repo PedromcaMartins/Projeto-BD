@@ -1,5 +1,12 @@
-/*PERGUNTAR SOBRE 1A RESTRIÇÂO NAO SEI FAZER :(*/
-
+/*PROBLEMA DO TEM_OUTRA... :(*/
+CREATE OR REPLACE TRIGGER doesnt_contain_itself
+BEFORE INSERT ON tem_outra 
+FOR EACH ROW
+BEGIN
+    IF NEW.categoria == NEW.super_categoria THEN
+        RAISE EXCEPTION 'Uma categoria não pode estar contida em si própria'
+    END IF;
+END;
 
 /*Trigger para verificar se nº unidades do evento de reposicao
 excede o do planograma*/
