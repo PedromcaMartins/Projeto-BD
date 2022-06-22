@@ -137,7 +137,7 @@ insert into prateleira values(5,333333,'Fabricante 1', 15, 'Batatas Fritas');
 insert into prateleira values(1,444444,'Fabricante 2', 15, 'Batatas Fritas');
 insert into prateleira values(2,444444,'Fabricante 2', 15, 'Bolachas');
 insert into prateleira values(3,444444,'Fabricante 2', 15, 'Doces');
-insert into prateleira values(4,444444,'Fabricante 2', 15, 'Aguas');
+insert into prateleira values(4,444444,'Fabricante 2', 15, 'Agua');
 insert into prateleira values(5,444444,'Fabricante 2', 15, 'Sumos');
 insert into prateleira values(6,444444,'Fabricante 2', 15, 'Pastilhas');
 
@@ -200,10 +200,12 @@ insert into retalhista values(123456702, 'DEF');
 insert into retalhista values(123456703, 'GHI');
 
 --responsavel por
-insert into responsavel_por values(123456701, 111111, 'Fabricante 1');
-insert into responsavel_por values(123456701, 222222, 'Fabricante 2');
-insert into responsavel_por values(123456702, 333333, 'Fabricante 1');
-insert into responsavel_por values(123456703, 444444, 'Fabricante 2');
+insert into responsavel_por values('Sumos Naturais', 123456701, 111111, 'Fabricante 1');
+insert into responsavel_por values('Pastilhas', 123456701, 111111, 'Fabricante 1');
+
+insert into responsavel_por values('Agua', 123456702, 333333, 'Fabricante 1');
+
+insert into responsavel_por values('Agua', 123456703, 444444, 'Fabricante 2');
 
 --evento reposicao
 insert into evento_reposicao values(1234567891201, 1, 111111, 'Fabricante 1', '2022-02-09 07:00:00', 5, 123456701);

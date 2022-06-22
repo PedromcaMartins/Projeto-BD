@@ -55,7 +55,7 @@ create table tem_categoria(
 );
 
 create table IVM(
-    num_serie   float,
+    num_serie   float   UNIQUE,
     fabricante  varchar(255),
     primary key(num_serie, fabricante)
 );
@@ -112,7 +112,8 @@ create table responsavel_por(
     fabricante varchar(255),
     primary key(num_serie,fabricante),
     foreign key(tin) references retalhista(tin),
-    foreign key(nome_cat) references categoria(nome_cat)
+    foreign key(nome_cat) references categoria(nome_cat),
+    foreign key(num_serie,fabricante) references IVM(num_serie,fabricante)
 );
 
 create table evento_reposicao(
