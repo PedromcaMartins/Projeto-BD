@@ -200,10 +200,11 @@ insert into retalhista values(123456702, 'DEF');
 insert into retalhista values(123456703, 'GHI');
 
 --responsavel por
-insert into responsavel_por values(123456701, 111111, 'Fabricante 1');
-insert into responsavel_por values(123456701, 222222, 'Fabricante 2');
-insert into responsavel_por values(123456702, 333333, 'Fabricante 1');
-insert into responsavel_por values(123456703, 444444, 'Fabricante 2');
+insert into responsavel_por values('Sumos Naturais', 123456701, 111111, 'Fabricante 1');
+
+insert into responsavel_por values('Agua', 123456702, 333333, 'Fabricante 1');
+
+insert into responsavel_por values('Agua', 123456703, 444444, 'Fabricante 2');
 
 --evento reposicao
 insert into evento_reposicao values(1234567891201, 1, 111111, 'Fabricante 1', '2022-02-09 07:00:00', 5, 123456701);
