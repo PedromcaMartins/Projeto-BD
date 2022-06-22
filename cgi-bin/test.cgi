@@ -90,4 +90,24 @@ def main_menu():
     return render_template("main_menu.html")
 
 
+@app.route("/ins_rem_cat")
+def insert_remove_cat():
+    return render_template("insert_remove_cat.html")
+
+
+@app.route("/ins_rem_retailer")
+def insert_remove_retailer():
+    return render_template("insert_remove_retailer.html")
+
+
+@app.route("/list_ivm_event")
+def list_ivm_events():
+    return render_template("list_ivm_events.html")
+
+
+@app.route("/list_all_subcat")
+def list_all_subcat():
+    return render_template("list_all_subcat.html")
+
+
 CGIHandler().run(app)
