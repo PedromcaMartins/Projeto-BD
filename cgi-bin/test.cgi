@@ -254,12 +254,29 @@ def create_retailer():
         dbConn.close()
 
 
-## TODO
-@app.route("/list_ivm_event")
+## metodos para a 3a funcionalidade
+@app.route("/list_ivm_events", methods=["POST"])
 def list_ivm_events():
-    return render_template("list_ivm_events.html")
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+        ## fixme meter o endereco ivm_sn a funcionar
+        ivm_sn = request.form["ivm_sn"]
+        query = "SELECT unidades FROM evento_reposicao GROUP BY ean WHERE num_serie=%ld;"
+        cursor.execute(query, (ivm_sn,))
+
+        return render_template("list_ivm_events.html", cursor=cursor)
+    except Exception as e:
+        return str(e)
+    finally:
+        cursor.close()
+        dbConn.close()
 
 
+## TODO
 @app.route("/list_all_subcat")
 def list_all_subcat():
     return render_template("list_all_subcat.html")
