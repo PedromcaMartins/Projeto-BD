@@ -235,8 +235,6 @@ def remove_retailer():
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         retailer_name = request.args["retailer_name"]
 
-        ## fixme mudar os WHERE dos deletes
-        ## eliminar o retailer de todas as tabelas
         query = "DELETE FROM responsavel_por AS rp WHERE rp.tin=(SELECT tin FROM retalhista AS r WHERE r.nome=%s)"
         cursor.execute(query, (retailer_name,))
         query = "DELETE FROM evento_reposicao AS rp WHERE rp.tin=(SELECT tin FROM retalhista AS r WHERE r.nome=%s)"
@@ -270,8 +268,7 @@ def create_retailer():
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
         retailer_name = request.form["retailer_name"]
-        ## fixme adicionar um id (dado pelo sistema) ao retalhista
-        retailer_id = 123456704
+        retailer_id = request.form["retailer_id"]
         query = "INSERT INTO retalhista VALUES (%s, %s);"
         data = (retailer_id, retailer_name)
 
@@ -286,7 +283,26 @@ def create_retailer():
 
 
 ## metodos para a 3a funcionalidade
-@app.route("/list_ivm_events", methods=["POST"])
+@app.route("/list_ivms")
+def list_ivms():
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+        query = "SELECT num_serie FROM IVM;"
+        cursor.execute(query)
+
+        return render_template("list_ivms.html", cursor=cursor)
+    except Exception as e:
+        return str(e)
+    finally:
+        cursor.close()
+        dbConn.close()
+
+
+@app.route("/list_ivm_events")
 def list_ivm_events():
     dbConn = None
     cursor = None
@@ -294,8 +310,7 @@ def list_ivm_events():
         dbConn = psycopg2.connect(DB_CONNECTION_STRING)
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-        ## fixme meter o endereco ivm_sn a funcionar
-        ivm_sn = request.form["ivm_sn"]
+        ivm_sn = request.args["ivm_sn"]
         query = "SELECT ean, SUM(unidades) FROM evento_reposicao WHERE num_serie=%s GROUP BY ean;"
         cursor.execute(query, (ivm_sn,))
 
