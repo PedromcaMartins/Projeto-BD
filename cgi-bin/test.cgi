@@ -123,13 +123,13 @@ def remove_category():
         cursor.execute(query, (category_name,))
         query = "DELETE FROM responsavel_por WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
-        query = "DELETE FROM produto WHERE nome_cat=%s"
-        cursor.execute(query, (category_name,))
         query = "DELETE FROM tem_categoria WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
         query = "DELETE FROM tem_outra WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
         query = "DELETE FROM tem_outra WHERE nome_cat_super=%s"
+        cursor.execute(query, (category_name,))
+        query = "DELETE FROM produto WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
         query = "DELETE FROM categoria_simples WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
@@ -265,7 +265,7 @@ def list_ivm_events():
 
         ## fixme meter o endereco ivm_sn a funcionar
         ivm_sn = request.form["ivm_sn"]
-        query = "SELECT unidades FROM evento_reposicao GROUP BY ean WHERE num_serie=%ld;"
+        query = "SELECT ean, SUM(unidades) FROM evento_reposicao WHERE num_serie=%s GROUP BY ean;"
         cursor.execute(query, (ivm_sn,))
 
         return render_template("list_ivm_events.html", cursor=cursor)
@@ -280,6 +280,27 @@ def list_ivm_events():
 @app.route("/list_all_subcat")
 def list_all_subcat():
     return render_template("list_all_subcat.html")
+
+
+##---------------------------------------------------------------------
+## funcao de teste para testar queries
+@app.route("/test")
+def test():
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+        query = "SELECT * FROM categoria;"
+        cursor.execute(query)
+
+        return render_template("test.html", cursor=cursor)
+    except Exception as e:
+        return str(e)
+    finally:
+        cursor.close()
+        dbConn.close()
 
 
 CGIHandler().run(app)
