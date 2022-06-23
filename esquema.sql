@@ -1,17 +1,17 @@
-drop table tem_outra;
-drop table tem_categoria;
-drop table instalada_em;
-drop table responsavel_por;
-drop table evento_reposicao;
-drop table planograma;
-drop table prateleira;
-drop table retalhista;
-drop table produto;
-drop table categoria_simples;
-drop table super_categoria;
-drop table categoria;
-drop table IVM;
-drop table ponto_de_retalho;
+drop table if exists tem_outra;
+drop table if exists tem_categoria;
+drop table if exists instalada_em;
+drop table if exists responsavel_por;
+drop table if exists evento_reposicao;
+drop table if exists planograma;
+drop table if exists prateleira;
+drop table if exists retalhista;
+drop table if exists produto;
+drop table if exists categoria_simples;
+drop table if exists super_categoria;
+drop table if exists categoria;
+drop table if exists IVM;
+drop table if exists ponto_de_retalho;
 --ESQUEMA
 
 create table categoria (
