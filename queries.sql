@@ -40,4 +40,5 @@ FROM evento_reposicao)
 /*4*/ --FIXME
 SELECT ean
 FROM evento_reposicao
-HAVING COUNT(DISTINCT tin) = 1
+GROUP BY DISTINCT tin
+HAVING COUNT(*) = 1
