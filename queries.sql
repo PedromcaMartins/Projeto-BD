@@ -7,14 +7,12 @@ HAVING COUNT(DISTINCT nome_cat) >= ALL (
     FROM retalhista NATURAL JOIN responsavel_por
     GROUP BY tin
 );
-/*2*/ --FIXME
+/*2*/
 SELECT nome
 FROM retalhista NATURAL JOIN responsavel_por
-WHERE NOT EXISTS(
-    SELECT COUNT (DISTINCT nome_cat) == 
-SELECT COUNT(
-SELECT nome_cat 
-FROM categoria_simples)
+GROUP BY nome
+HAVING COUNT (DISTINCT (nome_cat)) = (SELECT COUNT(nome_cat) 
+FROM categoria_simples);
 
 /*3*/ 
 SELECT ean
