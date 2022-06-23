@@ -1,5 +1,7 @@
 /*OLAP*/
 
+/* Possiveis erros: As próprias vendas ja têm inner join com evento_reposição e acho que falta dar select do próprio ean para fazer o GROUP BY  */
+
 -- num dado período (i.e. entre duas datas), por dia da semana, por concelho e no total ??
 SELECT COUNT(ean) AS nmr_artigos_vendidos
 FROM vendas AS v
