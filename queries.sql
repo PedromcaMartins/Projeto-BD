@@ -1,44 +1,30 @@
 /*1*/ 
-SELECT nome
-FROM retalhista 
-WHERE
-(SELECT Count(DISTINCT nome_cat) 
-FROM responsavel_por) >= ALL (
-SELECT Count(DISTINCT nome_cat)
-FROM responsavel_por)
-
-/* TESTAR QUAL FUNCIONA*/
---FIXME
-CREATE OR REPLACE VIEW aux 
-AS
-SELECT Count(DISTINCT nome_cat) as c
-FROM retalhista 
-
-SELECT nome
-FROM retalhista 
-WHERE
-aux.c >= ALL (
-SELECT Count(DISTINCT nome_cat)
-FROM responsavel_por)
-
+SELECT nome, COUNT(DISTINCT nome_cat)
+FROM retalhista NATURAL JOIN responsavel_por
+GROUP BY tin
+HAVING COUNT(DISTINCT nome_cat) >= ALL (
+    SELECT COUNT(DISTINCT nome_cat)
+    FROM retalhista NATURAL JOIN responsavel_por
+    GROUP BY tin
+);
 /*2*/ --FIXME
 SELECT nome
 FROM retalhista NATURAL JOIN responsavel_por
-WHERE 
-SELECT COUNT (DISTINCT nome_cat) == 
+WHERE NOT EXISTS(
+    SELECT COUNT (DISTINCT nome_cat) == 
 SELECT COUNT(
 SELECT nome_cat 
 FROM categoria_simples)
 
 /*3*/ 
-(SELECT ean
+SELECT ean
 FROM produto
 EXCEPT 
 SELECT ean
-FROM evento_reposicao)
+FROM evento_reposicao;
 
-/*4*/ --FIXME
+/*4*/ 
 SELECT ean
 FROM evento_reposicao
-GROUP BY DISTINCT tin
-HAVING COUNT(*) = 1
+GROUP BY ean
+HAVING COUNT(DISTINCT tin) = 1;
