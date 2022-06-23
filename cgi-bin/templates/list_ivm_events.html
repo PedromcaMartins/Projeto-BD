@@ -9,5 +9,32 @@
   </button>
 <p></p>
 
+<form action="list_ivm_events" method="post">
+<p>Procurar lista para a IVM: <input type="text" name="ivm_sn"/></p>
+<p><input type="submit" value="Submit"/></p>
+</form>
+
+{% if cursor %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>Unidades</th>
+                <th>ean</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in cursor %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td>{{ record[1] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p> Erro: não foi possível obter dados da base de dados!</p>
+{% endif %}
+
+
 </body>
 </html> 
