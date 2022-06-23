@@ -117,24 +117,55 @@ def remove_category():
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         category_name = request.args["category_name"]
 
-        ## fixme corrigir os delete's
-        ## eliminar a conta de todas as tabelas
+
+        query = "SELECT ean FROM produto AS p WHERE p.nome_cat=%s"
+        cursor.execute(query, (category_name,))
+        cat_table = cursor.fetchall()
+
+        for line in cat_table:
+            query = "DELETE FROM evento_reposicao WHERE ean=%s"
+            cursor.execute(query, (line[0],))
+            
+            query = "DELETE FROM planograma WHERE ean=%s"
+            cursor.execute(query, (line[0],))
+
+
+        query = "SELECT nro FROM prateleira AS p WHERE p.nome_cat=%s"
+        cursor.execute(query, (category_name,))
+        prat_has_nro_table = cursor.fetchall()
+
+        for line in prat_has_nro_table:
+            query = "DELETE FROM evento_reposicao WHERE nro=%s"
+            cursor.execute(query, (line[0],))
+            
+            query = "DELETE FROM planograma WHERE nro=%s"
+            cursor.execute(query, (line[0],))
+
+
         query = "DELETE FROM prateleira WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
-        query = "DELETE FROM responsavel_por WHERE nome_cat=%s"
-        cursor.execute(query, (category_name,))
+
         query = "DELETE FROM tem_categoria WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
-        query = "DELETE FROM tem_outra WHERE nome_cat=%s"
-        cursor.execute(query, (category_name,))
-        query = "DELETE FROM tem_outra WHERE nome_cat_super=%s"
-        cursor.execute(query, (category_name,))
+
         query = "DELETE FROM produto WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
+
+        query = "DELETE FROM responsavel_por WHERE nome_cat=%s"
+        cursor.execute(query, (category_name,))
+
+        query = "DELETE FROM tem_outra WHERE nome_cat=%s"
+        cursor.execute(query, (category_name,))
+
+        query = "DELETE FROM tem_outra WHERE nome_cat_super=%s"
+        cursor.execute(query, (category_name,))
+
         query = "DELETE FROM categoria_simples WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
+
         query = "DELETE FROM super_categoria WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
+        
         query = "DELETE FROM categoria WHERE nome_cat=%s"
         cursor.execute(query, (category_name,))
 
@@ -293,7 +324,7 @@ def test():
         dbConn = psycopg2.connect(DB_CONNECTION_STRING)
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-        query = "SELECT * FROM produto;"
+        query = "SELECT * FROM super_categoria;"
         cursor.execute(query)
 
         return render_template("test.html", cursor=cursor)
@@ -313,16 +344,33 @@ def test_remove():
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         object = request.args["object"]
 
+
         query = "SELECT ean FROM produto AS p WHERE p.nome_cat=%s"
         cursor.execute(query, (object,))
-        cat_table = cursor.fetchall()
+        cat_has_ean_table = cursor.fetchall()
 
-        for line in cat_table:
+        for line in cat_has_ean_table:
             query = "DELETE FROM evento_reposicao WHERE ean=%s"
             cursor.execute(query, (line[0],))
             
             query = "DELETE FROM planograma WHERE ean=%s"
             cursor.execute(query, (line[0],))
+
+
+        query = "SELECT nro FROM prateleira AS p WHERE p.nome_cat=%s"
+        cursor.execute(query, (object,))
+        prat_has_nro_table = cursor.fetchall()
+
+        for line in prat_has_nro_table:
+            query = "DELETE FROM evento_reposicao WHERE nro=%s"
+            cursor.execute(query, (line[0],))
+            
+            query = "DELETE FROM planograma WHERE nro=%s"
+            cursor.execute(query, (line[0],))
+
+
+        query = "DELETE FROM prateleira WHERE nome_cat=%s"
+        cursor.execute(query, (object,))
 
         query = "DELETE FROM tem_categoria WHERE nome_cat=%s"
         cursor.execute(query, (object,))
@@ -330,10 +378,21 @@ def test_remove():
         query = "DELETE FROM produto WHERE nome_cat=%s"
         cursor.execute(query, (object,))
 
-        #query = "DELETE FROM planograma WHERE nome_cat=%s"
-        #cursor.execute(query)
+        query = "DELETE FROM responsavel_por WHERE nome_cat=%s"
+        cursor.execute(query, (object,))
+        query = "DELETE FROM tem_outra WHERE nome_cat=%s"
+        cursor.execute(query, (object,))
+        query = "DELETE FROM tem_outra WHERE nome_cat_super=%s"
+        cursor.execute(query, (object,))
+        query = "DELETE FROM categoria_simples WHERE nome_cat=%s"
+        cursor.execute(query, (object,))
+        query = "DELETE FROM super_categoria WHERE nome_cat=%s"
+        cursor.execute(query, (object,))
+        query = "DELETE FROM categoria WHERE nome_cat=%s"
+        cursor.execute(query, (object,))
 
-        query = "SELECT * FROM produto;"
+
+        query = "SELECT * FROM super_categoria;"
         cursor.execute(query)
 
 
