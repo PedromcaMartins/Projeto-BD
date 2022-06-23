@@ -206,9 +206,9 @@ def remove_retailer():
 
         ## fixme mudar os WHERE dos deletes
         ## eliminar o retailer de todas as tabelas
-        query = "DELETE FROM responsavel_por WHERE nome=%s"
+        query = "DELETE FROM responsavel_por AS rp WHERE rp.tin=(SELECT tin FROM retalhista AS r WHERE r.nome=%s)"
         cursor.execute(query, (retailer_name,))
-        query = "DELETE FROM evento_reposicao WHERE nome=%s"
+        query = "DELETE FROM evento_reposicao AS rp WHERE rp.tin=(SELECT tin FROM retalhista AS r WHERE r.nome=%s)"
         cursor.execute(query, (retailer_name,))
         query = "DELETE FROM retalhista WHERE nome=%s"
         cursor.execute(query, (retailer_name,))
@@ -283,6 +283,7 @@ def list_all_subcat():
 
 
 ##---------------------------------------------------------------------
+## fixme remover a funcoa de teste antes da entrega
 ## funcao de teste para testar queries
 @app.route("/test")
 def test():
@@ -292,13 +293,55 @@ def test():
         dbConn = psycopg2.connect(DB_CONNECTION_STRING)
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-        query = "SELECT * FROM categoria;"
+        query = "SELECT * FROM produto;"
         cursor.execute(query)
 
         return render_template("test.html", cursor=cursor)
     except Exception as e:
         return str(e)
     finally:
+        cursor.close()
+        dbConn.close()
+
+
+@app.route("/test_remove")
+def test_remove():
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        object = request.args["object"]
+
+        query = "SELECT ean FROM produto AS p WHERE p.nome_cat=%s"
+        cursor.execute(query, (object,))
+        cat_table = cursor.fetchall()
+
+        for line in cat_table:
+            query = "DELETE FROM evento_reposicao WHERE ean=%s"
+            cursor.execute(query, (line[0],))
+            
+            query = "DELETE FROM planograma WHERE ean=%s"
+            cursor.execute(query, (line[0],))
+
+        query = "DELETE FROM tem_categoria WHERE nome_cat=%s"
+        cursor.execute(query, (object,))
+
+        query = "DELETE FROM produto WHERE nome_cat=%s"
+        cursor.execute(query, (object,))
+
+        #query = "DELETE FROM planograma WHERE nome_cat=%s"
+        #cursor.execute(query)
+
+        query = "SELECT * FROM produto;"
+        cursor.execute(query)
+
+
+        return render_template("test.html", cursor=cursor)
+    except Exception as e:
+        return str(e)
+    finally:
+        dbConn.commit()
         cursor.close()
         dbConn.close()
 
