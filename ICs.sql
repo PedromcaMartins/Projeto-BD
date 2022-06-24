@@ -16,7 +16,7 @@ $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER doesnt_contain_itself_trigger
 BEFORE INSERT ON tem_outra 
-FOR EACH ROW EXECUTE PROCEDURE doesnt_contain_itself_proc()
+FOR EACH ROW EXECUTE PROCEDURE doesnt_contain_itself_proc();
 
 /*Trigger para verificar se nº unidades do evento de reposicao
 excede o do planograma*/
@@ -35,7 +35,7 @@ $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER check_units_trigger
 BEFORE INSERT ON evento_reposicao 
-FOR EACH ROW EXECUTE PROCEDURE check_units_proc()
+FOR EACH ROW EXECUTE PROCEDURE check_units_proc();
 
 /*Trigger para verificar se se pode colocar produto na prateleira*/
 CREATE OR REPLACE FUNCTION is_valid_proc()
@@ -56,4 +56,4 @@ $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER is_valid_proc()
 BEFORE INSERT ON planograma 
-FOR EACH ROW EXECUTE PROCEDURE is_valid_proc()
+FOR EACH ROW EXECUTE PROCEDURE is_valid_proc();
