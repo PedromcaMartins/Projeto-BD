@@ -1,20 +1,20 @@
 ------------------------------------------------------------
                        --Reset tabelas
 ------------------------------------------------------------
-drop table tem_outra;
-drop table tem_categoria;
-drop table instalada_em;
-drop table responsavel_por;
-drop table evento_reposicao;
-drop table planograma;
-drop table prateleira;
-drop table retalhista;
-drop table produto;
-drop table categoria_simples;
-drop table super_categoria;
-drop table categoria;
-drop table IVM;
-drop table ponto_de_retalho;
+drop table tem_outra CASCADE;
+drop table tem_categoria CASCADE;
+drop table instalada_em CASCADE;
+drop table responsavel_por CASCADE;
+drop table evento_reposicao CASCADE;
+drop table planograma CASCADE;
+drop table prateleira CASCADE;
+drop table retalhista CASCADE;
+drop table produto CASCADE;
+drop table categoria_simples CASCADE;
+drop table super_categoria CASCADE;
+drop table categoria CASCADE;
+drop table IVM CASCADE;
+drop table ponto_de_retalho CASCADE;
 
 -----------------------------------------------------------
                          --ESQUEMA
