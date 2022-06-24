@@ -18,4 +18,4 @@ SELECT concelho, nome_cat, dia_semana, SUM(unidades) AS nmr_artigos_vendidos
 FROM vendas AS v
 WHERE v.distrito = 'Lisboa'
 GROUP BY CUBE (concelho, nome_cat, dia_semana)
-ORDER BY ean, concelho, nome_cat, dia_semana, nmr_artigos_vendidos DESC;
+ORDER BY concelho, nome_cat, dia_semana, nmr_artigos_vendidos DESC;
