@@ -322,10 +322,60 @@ def list_ivm_events():
         dbConn.close()
 
 
-## TODO
+## metodos para a 4a funcionalidade
+@app.route("/list_cat")
+def list_cat():
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+        query = "SELECT * FROM categoria;"
+        cursor.execute(query)
+
+        return render_template("list_cat.html", cursor=cursor)
+    except Exception as e:
+        return str(e)
+    finally:
+        cursor.close()
+        dbConn.close()
+
+
 @app.route("/list_all_subcat")
 def list_all_subcat():
-    return render_template("list_all_subcat.html")
+    dbConn = None
+    cursor = None
+    try:
+        dbConn = psycopg2.connect(DB_CONNECTION_STRING)
+        cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+        category_names = []
+        total_record = []
+
+        ## fixme criar 2 buffers, adicionar 2 loops:
+        #  while(len != 0), for para fazer execute da categoria
+        #  no buffer e fazer um for para cada record, 
+        # guarda o record num buffer, envia o buffer 
+        # como argumento para a pagina html ;)
+        category_name = request.args["category_name"]
+        category_names.append(category_name)
+
+
+        while(len(category_names) != 0):
+            query = "SELECT nome_cat FROM tem_outra WHERE nome_cat_super=%s;"
+            cursor.execute(query, (category_names.pop(0),))
+
+            for record in cursor.fetchall():
+                total_record.append(record)
+                category_names.append(record[0])
+
+        return render_template("list_all_subcat.html", cursor=total_record)
+    except Exception as e:
+        return str(e)
+    finally:
+        cursor.close()
+        dbConn.close()
 
 
 ##---------------------------------------------------------------------

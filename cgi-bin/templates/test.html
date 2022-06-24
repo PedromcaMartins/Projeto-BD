@@ -16,7 +16,10 @@
         <thead>
             <tr>
 
-                <th>Nome</th>
+                <th>Nome categoria</th>
+                <th>id retalhista</th>
+                <th>ivm sn</th>
+                <th>fabricante</th>
                 <th>Remover</th>
             
             </tr>
@@ -27,6 +30,9 @@
 
                     <td>{{ record[0] }}</td>
                     <td>{{ record[1] }}</td>
+                    <td>{{ record[2] }}</td>
+                    <td>{{ record[3] }}</td>
+                    <td><a href="test_remove?object=Sumos">Remover</a></td>
 
                 </tr>
             {% endfor %}
