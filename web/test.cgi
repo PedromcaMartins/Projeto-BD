@@ -35,7 +35,7 @@ def insert_remove_cat():
     try:
         dbConn = psycopg2.connect(DB_CONNECTION_STRING)
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-        query = "SELECT * FROM categoria;"
+        query = "SELECT * FROM categoria WHERE nome_cat IS NOT NULL;"
         cursor.execute(query)
         return render_template("insert_remove_cat.html", cursor=cursor)
     except Exception as e:
@@ -152,7 +152,7 @@ def insert_remove_retailer():
         dbConn = psycopg2.connect(DB_CONNECTION_STRING)
         cursor = dbConn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-        query = "SELECT nome FROM retalhista;"
+        query = "SELECT nome FROM retalhista WHERE nome IS NOT NULL;"
         cursor.execute(query)
 
         return render_template("insert_remove_retailer.html", cursor=cursor)

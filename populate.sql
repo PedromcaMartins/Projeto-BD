@@ -106,8 +106,8 @@ create table planograma(
 );
 
 create table retalhista(
-    tin float,
-    nome varchar(255) UNIQUE,
+    tin float   NOT NULL,
+    nome varchar(255)   UNIQUE,
     primary key(tin)
 );
 
