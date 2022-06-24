@@ -160,6 +160,8 @@ insert into categoria values('Pastilhas');
 insert into categoria values('Doces');
 insert into categoria values('Refrigerantes');
 insert into categoria values('Bebidas');
+insert into categoria values('Pastilhas de Morango da Gorilla');
+insert into categoria values('Pastilhas de Morango da Chicklet');
 
 --categorias simples
 insert into categoria_simples values('Sumos Naturais');
@@ -175,6 +177,8 @@ insert into categoria_simples values('Pastilhas de Morango');
 insert into categoria_simples values('Waffles');
 insert into categoria_simples values('Gomas');
 insert into categoria_simples values('Agua');
+insert into categoria_simples values('Pastilhas de Morango da Gorilla');
+insert into categoria_simples values('Pastilhas de Morango da Chicklet');
 
 --super categorias
 insert into super_categoria values('Sumos');
@@ -184,6 +188,7 @@ insert into super_categoria values('Barras');
 insert into super_categoria values('Pastilhas');
 insert into super_categoria values('Doces');
 insert into super_categoria values('Bebidas');
+insert into super_categoria values('Pastilhas de Morango');
 
 --tem outra
 insert into tem_outra values('Sumos','Sumos Naturais');
@@ -196,6 +201,8 @@ insert into tem_outra values('Barras','Barras de Cereais');
 insert into tem_outra values('Barras','Barras Energeticas');
 insert into tem_outra values('Pastilhas','Pastilhas de Menta');
 insert into tem_outra values('Pastilhas','Pastilhas de Morango');
+insert into tem_outra values('Pastilhas de Morango','Pastilhas de Morango da Gorilla');
+insert into tem_outra values('Pastilhas de Morango','Pastilhas de Morango da Chicklet');
 insert into tem_outra values('Doces','Waffles');
 insert into tem_outra values('Doces','Gomas');
 insert into tem_outra values('Bebidas','Sumos');

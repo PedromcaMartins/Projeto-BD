@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Lista as categorias</h1>
+<p></p>
+<button onclick="window.location.href='http://web2.ist.utl.pt/ist199303/test.cgi/';">
+    Main menu
+  </button>
+<p></p>
+
+{% if cursor %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>Selecionar categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in cursor %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td><a href="list_all_subcat?category_name={{ record[0] }}">Selecionar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p> Erro: não foi possível obter dados da base de dados!</p>
+{% endif %}
+
+
+</body>
+</html> 

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>List accounts - Flask</title>
-</head>
-<body style="padding:20px">
+<body>
+
+<h1>Lista de eventos da IVM dada</h1>
+<p></p>
+<button onclick="window.location.href='http://web2.ist.utl.pt/ist199303/test.cgi/';">
+    Main menu
+  </button>
+<p></p>
+
 {% if cursor %}
     <table border="2px">
         <thead>
             <tr>
-                <th>Conta</th>
-                <th>Agência</th>
-                <th>Saldo</th>
-                <th>Alterar</th>
+                <th>Unidades</th>
+                <th>ean</th>
             </tr>
         </thead>
         <tbody>
@@ -20,9 +22,6 @@
                 <tr>
                     <td>{{ record[0] }}</td>
                     <td>{{ record[1] }}</td>
-                    <td>{{ record[2] }}</td>
-                    <td><a href="balance?account_number={{ record[0] }}">Alterar
-                    saldo</a></td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -30,5 +29,12 @@
 {% else %}
     <p> Erro: não foi possível obter dados da base de dados!</p>
 {% endif %}
+
+<p></p>
+<button onclick="window.location.href='http://web2.ist.utl.pt/ist199303/test.cgi/list_ivms';">
+    Previous menu
+  </button>
+<p></p>
+
 </body>
-</html>
+</html> 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Lista as IVMs</h1>
+<p></p>
+<button onclick="window.location.href='http://web2.ist.utl.pt/ist199303/test.cgi/';">
+    Main menu
+  </button>
+<p></p>
+
+{% if cursor %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>IVM</th>
+                <th>Selecionar IVM</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in cursor %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td><a href="list_ivm_events?ivm_sn={{ record[0] }}">Selecionar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p> Erro: não foi possível obter dados da base de dados!</p>
+{% endif %}
+
+
+</body>
+</html> 
