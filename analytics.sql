@@ -6,8 +6,9 @@
  por concelho e no total*/
 SELECT ean, dia_semana, concelho, SUM(unidades) AS nmr_artigos_vendidos
 FROM vendas AS v
-WHERE v.instante >= '2022-01-01 01:00:00' AND
-v.instante < '2022-05-13 23:59:00'
+WHERE v.ano = 2022 AND 
+v.mes BETWEEN 1 AND 5 AND 
+dia_mes BETWEEN 1 AND 31
 GROUP BY CUBE (ean, dia_semana, concelho)
 ORDER BY ean, dia_semana, concelho, nmr_artigos_vendidos DESC;
 
