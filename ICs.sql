@@ -1,3 +1,7 @@
+-------------------------------------------------------------
+                        --Restrições
+-------------------------------------------------------------
+
 /*Trigger para verificar se uma categoria não pode estar contida em si própria*/
 CREATE OR REPLACE FUNCTION doesnt_contain_itself_proc()
 RETURNS TRIGGER AS

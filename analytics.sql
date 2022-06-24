@@ -1,8 +1,11 @@
+-------------------------------------------------------------
 /*OLAP*/
+-------------------------------------------------------------
 
 /* Possiveis erros: As próprias vendas ja têm inner join com evento_reposição e acho que falta dar select do próprio ean para fazer o GROUP BY  */
 
--- num dado período (i.e. entre duas datas), por dia da semana, por concelho e no total ??
+/* num dado período (i.e. entre duas datas), por dia da semana,
+ por concelho e no total*/
 SELECT COUNT(ean) AS nmr_artigos_vendidos
 FROM vendas AS v
 INNER JOIN evento_reposicao AS er ON (er.ean = v.ean)
@@ -10,7 +13,8 @@ WHERE er.instante >= {1} AND er.instante <= {2} AND v.dia_semana = {3} AND conce
 GROUP BY ean
 /*1,2,3 e 4 referem-se a um dado instante (1,2) ao dia da semana (3) e ao conselho (4)*/
 
--- num dado distrito (i.e. “Lisboa”), por concelho, categoria, dia da semana e no total ??
+/* num dado distrito (i.e. “Lisboa”), por concelho, categoria, 
+dia da semana e no total*/
 SELECT COUNT(ean) AS nmr_artigos_vendidos
 FROM vendas AS v
 INNER JOIN evento_reposicao AS er ON (er.ean = v.ean)
